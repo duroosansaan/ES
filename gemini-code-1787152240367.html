@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES Agency | وكالة صناعة المحتوى البصري والأنيميشن الاحترافي</title>
+    
+    <!-- SEO & Open Graph Meta Tags -->
+    <meta name="description" content="وكالة ES Agency متخصصة في تصميم الفيديوهات الإعلانية، تحريك الأنيميشن، الموشن جرافيك، المونتاج، والهويات البصرية.">
+    <meta name="keywords" content="تصميم فيديوهات, تصميم إعلانات, مونتاج فيديو, تصميم سوشيال ميديا, مصمم إعلانات, تصميم Reels, Motion Graphics, ES Agency">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ES Agency | صناعة المحتوى البصري والأنيميشن">
+    <meta property="og:description" content="نحول فكرتك إلى تصميم إعلاني يلفت الانتباه ويضاعف أرباحك. خدمات أنيميشن وموشن جرافيك وتصاميم ثابتة.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#000000',
+                            dark: '#18181b',
+                            card: '#f4f4f5',
+                            border: '#e4e4e7',
+                            muted: '#71717a',
+                            light: '#fafafa',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- React & ReactDOM CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel Standalone for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #ffffff;
+            color: #09090b;
+            overflow-x: hidden;
+        }
+
+        .bw-glass {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .bw-card {
+            background: #ffffff;
+            border: 1px solid #e4e4e7;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bw-card:hover {
+            border-color: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px -8px rgba(0, 0, 0, 0.08);
+        }
+
+        .bw-btn-primary {
+            background-color: #000000;
+            color: #ffffff;
+            font-weight: 700;
+            transition: all 0.25s ease;
+        }
+
+        .bw-btn-primary:hover {
+            background-color: #27272a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: scale(1.01);
+        }
+
+        .bw-btn-outline {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #d4d4d8;
+            transition: all 0.25s ease;
+        }
+
+        .bw-btn-outline:hover {
+            border-color: #000000;
+            background: #f4f4f5;
+        }
+
+        .aspect-square { aspect-ratio: 1 / 1; }
+        .aspect-portrait { aspect-ratio: 4 / 5; }
+        .aspect-story { aspect-ratio: 9 / 16; }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4d4d8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a1a1aa;
+        }
+    </style>
+</head>
+<body class="selection:bg-black selection:text-white">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useMemo } = React;
+
+        const AGENCY_CONFIG = {
+            name: "ES Agency",
+            headline: "نحوّل فكرتك إلى تصميم يلفت الانتباه ويبيع.",
+            subheadline: "متخصصون في صناعة الفيديوهات الإعلانية، أنيميشن كامل، دمج الصور والتحريك، المونتاج الاحترافي، والتصاميم الموجهة لرفع المبيعات.",
+            // اكتب رقم الواتساب الخاص بك هنا بدون صفر في البداية مع كود المصرى 20
+            // مثال: 201012345678
+            ownerWhatsApp: "201000000000",
+            social: {
+                facebook: "https://www.facebook.com/share/1BbzgSxQYE/",
+                messenger: "https://www.facebook.com/share/1BbzgSxQYE/",
+                instagram: "https://www.instagram.com/eslam_amr_almasry?igsh=MTVia3Y5NmY3d2h0Mw==&igsi=MTVia3Y5NmY3d2h0Mw==",
+                tiktok: "https://www.tiktok.com/@eslam.amr_almasry?_r=1&_t=ZS-990tlmVbOEy"
+            }
+        };
+
+        const INITIAL_SERVICES = [
+            {
+                id: "srv-1",
+                title: "Pure Animation (أنيميشن كامل)",
+                category: "Motion Graphics",
+                price: 650,
+                unit: "للدقيقة",
+                delivery: "3 أيام عمل / للدقيقة",
+                badge: "الأعلى طلباً",
+                description: "إنتاج فيديو أنيميشن وموشن جرافيك مخصص بالكامل من الفكرة والسكريبت ورسم الشخصيات حتى التحريك النهائي.",
+                features: ["كتابة السكريبت الإعلاني", "رسم شخصيات مخصصة", "تحريك احترافي كامل", "مؤثرات صوتية وموسيقى"]
+            },
+            {
+                id: "srv-2",
+                title: "Mixed with Pic (دمج صور وأنيميشن)",
+                category: "Video",
+                price: 580,
+                unit: "للدقيقة",
+                delivery: "3 أيام عمل / للدقيقة",
+                badge: "متميز للمتاجر",
+                description: "دمج متناسق واحترافي بين صور المنتجات أو العناصر الحقيقية مع لمسات أنيميشن ومؤثرات كرتونية حركية.",
+                features: ["معالجة صور المنتجات", "إضافة عناصر أنيميشن", "مؤثرات بصرية حركية", "إخراج دايناميكي مشوق"]
+            },
+            {
+                id: "srv-3",
+                title: "Pictures + Words (تحريك صور ونصوص)",
+                category: "Video",
+                price: 480,
+                unit: "للدقيقة",
+                delivery: "3 أيام عمل / للدقيقة",
+                badge: "اقتصادي وسريع",
+                description: "عرض حركي سريع مخصص للإعلانات التي تهدف لإيصال الرسالة فوراً عبر تحريك النصوص والمنتجات.",
+                features: ["تحريك نصوص Typography", "انتقالات حركية سريعة", "مناسب للريلز والتيك توك", "إبراز المزايا والأسعار"]
+            },
+            {
+                id: "srv-4",
+                title: "Design / Static Post (تصميم إعلاني ثابت)",
+                category: "Social Media",
+                price: 180,
+                unit: "للتصميم الواحد",
+                delivery: "يومان عمل",
+                badge: "تصميم ثابت",
+                description: "تصميم إعلاني ثابت للسوشيال ميديا متناسق الهوية، مصمم خصيصاً لجذب العين وزيادة المبيعات.",
+                features: ["دمج الصور الاحترافي", "توزيع نصوص جذاب", "تسليم بمقاسات السوشيال", "هوية بصرية معتمدة"]
+            },
+            {
+                id: "srv-5",
+                title: "مونتاج Reels & Shorts احترافي",
+                category: "Video",
+                price: 350,
+                unit: "للفيديو",
+                delivery: "يومان عمل",
+                badge: "تريند",
+                description: "قص ومونتاج وإضافة نصوص حركية (Subtitles) ومؤثرات صوتية للفيديوهات الطولية لزيادة الانتشار.",
+                features: ["تفريغ ونصوص حركية", "مؤثرات B-Roll سريعة", "تعديل ألوان وتنقية صوت", "تصميم الغلاف Cover"]
+            },
+            {
+                id: "srv-7",
+                title: "تصميم هوية بصرية متكاملة (Branding)",
+                category: "Branding",
+                price: 2500,
+                unit: "للمشروع",
+                delivery: "7 أيام عمل",
+                badge: "شامل",
+                description: "بناء الهوية البصرية للشركات والمشروعات: الشعار، لوحة الألوان، الخطوط، ونماذج المطبوعات والتطبيقات.",
+                features: ["تصميم الشعار Logo", "دليل استخدامه Brand Guidelines", "تصميم المطبوعات الرئيسية", "قوالب السوشيال ميديا"]
+            },
+            {
+                id: "srv-8",
+                title: "تصاميم خاصة للشركات والمؤسسات",
+                category: "Branding",
+                price: 1500,
+                unit: "للملف",
+                delivery: "5 أيام عمل",
+                badge: "B2B",
+                description: "تصميم البروفايل التعريفي (Company Profile)، العروض التقديمية، والكتالوجات الاحترافية.",
+                features: ["تنظيم وتنسيق البيانات", "إنفوجرافيك مخصص", "جاهز للطباعة والعرض الرقمي", "ملفات مفتوحة للتعديل"]
+            }
+        ];
+
+        const INITIAL_PACKS = [
+            {
+                id: "pack-1",
+                name: "Starter Pack (باقة البداية)",
+                price: 1250,
+                unit: "جنيه مصري",
+                recommended: false,
+                features: [
+                    "فيديو أنيميشن دقيقة كاملة (1 Min Video)",
+                    "4 تصاميم إعلانية ثابتة (4 Posts)",
+                    "توفير ممتاز لبداية حملتك الإعلانية",
+                    "تسليم خلال 4 أيام عمل"
+                ]
+            },
+            {
+                id: "pack-2",
+                name: "Growth Pack (باقة النمو)",
+                price: 4080,
+                unit: "جنيه مصري",
+                recommended: true,
+                badge: "الأكثر مبيعاً",
+                features: [
+                    "4 فيديوهات أنيميشن دقيقة (4 Min Videos)",
+                    "12 تصميم إعلاني متنوع (12 Posts)",
+                    "تغطية تسويقية متكاملة لمشروعك",
+                    "أولوية التنفيذ والمتابعة"
+                ]
+            },
+            {
+                id: "pack-3",
+                name: "Posts Only Pack (باقة التصاميم)",
+                price: 3260,
+                unit: "جنيه مصري",
+                recommended: false,
+                features: [
+                    "32 تصميم إعلاني ثابت (32 Posts)",
+                    "مقسمة: كل 4 منشورات مترابطة بفكره",
+                    "تغطية شهرية كاملة (4 بوستات أسبوعياً)",
+                    "هوية متناسقة للحساب"
+                ]
+            },
+            {
+                id: "pack-4",
+                name: "Videos Only Pack (باقة الفيديوهات)",
+                price: 3120,
+                unit: "جنيه مصري",
+                recommended: false,
+                features: [
+                    "2 فيديو تحريك صور ونصوص (Pictures+Words)",
+                    "2 فيديو أنيميشن كامل (Pure Animation)",
+                    "2 فيديو دمج صور وأنيميشن (Mixed)",
+                    "إجمالي 6 فيديوهات حركية متكاملة"
+                ]
+            }
+        ];
+
+        const INITIAL_POLICIES = [
+            {
+                title: "مواعيد التسليم القياسية",
+                desc: "تسليم الفيديو خلال 3 أيام عمل لكل دقيقة | تسليم التصميم الثابت خلال يومين عمل (يبدأ العد بعد اعتماد الفكرة واستلام العربون)."
+            },
+            {
+                title: "نظام الدفع والتعاقد",
+                desc: "دفع 50% مبلغ عربون مقدم قبل البدء في العمل، والـ 50% المتبقية تسدد بعد استلام المعاينة النهائية وقبل تسليم الملفات."
+            },
+            {
+                title: "سياسة التعديلات المعتمدة",
+                desc: "التعديل مجاني مرة واحدة لكل تصميم ومرة واحدة لكل فيديو شريطة تجميد الملاحظات. أي تعديلات إضافية تكون برسوم 80 ج.م للتعديل."
+            },
+            {
+                title: "الملفات المفتوحة والصيغ",
+                desc: "تسليم الفيديوهات بصيغة MP4 والتصاميم بصيغ PNG/JPG جاهزة للنشر. طلب تسليم الملف المفتوح (PSD) يكون برسوم 50 ج.م لكل تصميم."
+            }
+        ];
+
+        const INITIAL_PORTFOLIO = [
+            { id: "p1", title: "إعلان أنيميشن لمتجر إلكتروني", category: "Motion Graphics", ratio: "aspect-square", image: "https://picsum.photos/800/800?random=11", desc: "فيديو أنيميشن كامل يعرض مزايا التطبيق بطريقة كرتونية شيقة." },
+            { id: "p2", title: "بوستر إعلاني لمشروب طبيعي", category: "Ads", ratio: "aspect-portrait", image: "https://picsum.photos/800/1000?random=12", desc: "تصميم ثابت موجه لزيادة المبيعات على إنستجرام وفيسبوك." },
+            { id: "p3", title: "ريلز حركي لسلسلة مطاعم", category: "Video", ratio: "aspect-story", image: "https://picsum.photos/720/1280?random=13", desc: "دمج بين تصوير الوجبات الحقيقي والمؤثرات النصية الحركية." },
+            { id: "p4", title: "هوية بصرية لشركة استشارات", category: "Branding", ratio: "aspect-portrait", image: "https://picsum.photos/800/1000?random=14", desc: "بناء الشعار ودليل الألوان والمطبوعات الرسمية بالكامل." },
+            { id: "p5", title: "حملة إعلانات سوشيال ميديا", category: "Social Media", ratio: "aspect-square", image: "https://picsum.photos/800/800?random=15", desc: "سلسلة تصاميم متناسقة لنشر المنتجات بشكل أسبوعي." },
+            { id: "p6", title: "فيديو دمج صور مع أنيميشن", category: "Motion Graphics", ratio: "aspect-story", image: "https://picsum.photos/720/1280?random=16", desc: "تحريك منتجات الساعات وتزيينها بمؤثرات كرتونية." }
+        ];
+
+        function MainApp() {
+            const [services, setServices] = useState(() => JSON.parse(localStorage.getItem('es_services')) || INITIAL_SERVICES);
+            const [packs, setPacks] = useState(() => JSON.parse(localStorage.getItem('es_packs')) || INITIAL_PACKS);
+            const [portfolio, setPortfolio] = useState(() => JSON.parse(localStorage.getItem('es_portfolio')) || INITIAL_PORTFOLIO);
+
+            const [portfolioFilter, setPortfolioFilter] = useState("All");
+            const [selectedService, setSelectedService] = useState(null);
+            const [selectedPortfolio, setSelectedPortfolio] = useState(null);
+            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+            const [isAdminOpen, setIsAdminOpen] = useState(false);
+            const [passcode, setPasscode] = useState("");
+            const [isAuthenticated, setIsAuthenticated] = useState(false);
+            const [adminTab, setAdminTab] = useState("manage_portfolio");
+
+            const [newItemTitle, setNewItemTitle] = useState("");
+            const [newItemDesc, setNewItemDesc] = useState("");
+            const [newItemCategory, setNewItemCategory] = useState("Social Media");
+            const [newItemImg, setNewItemImg] = useState("");
+            const [newItemRatio, setNewItemRatio] = useState("aspect-square");
+
+            const [editingPortfolioId, setEditingPortfolioId] = useState(null);
+
+            const [contactForm, setContactForm] = useState({ name: "", phone: "", service: "تصميم فيديو إعلاني", budget: "300 - 1000 ج.م", details: "" });
+            const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+            useEffect(() => {
+                localStorage.setItem('es_services', JSON.stringify(services));
+                localStorage.setItem('es_packs', JSON.stringify(packs));
+                localStorage.setItem('es_portfolio', JSON.stringify(portfolio));
+            }, [services, packs, portfolio]);
+
+            useEffect(() => {
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            }, [selectedService, selectedPortfolio, isAdminOpen, isAuthenticated, adminTab, mobileMenuOpen, portfolioFilter, editingPortfolioId, showSuccessModal]);
+
+            const filteredPortfolio = useMemo(() => {
+                if (portfolioFilter === "All") return portfolio;
+                return portfolio.filter(item => item.category.toLowerCase() === portfolioFilter.toLowerCase());
+            }, [portfolio, portfolioFilter]);
+
+            const openMessenger = () => {
+                window.open(AGENCY_CONFIG.social.messenger, '_blank');
+            };
+
+            const handleContactSubmit = (e) => {
+                e.preventDefault();
+                if (!contactForm.name || !contactForm.phone) return;
+                
+                // تجهيز الرسالة لإرسالها لواتساب الإدارة فوراً
+                const message = `📥 *طلب جديد من موقع ES Agency*\n\n👤 *الاسم:* ${contactForm.name}\n📞 *رقم الهاتف:* ${contactForm.phone}\n🛠 *الخدمة المطلوبة:* ${contactForm.service}\n💰 *الميزانية المتوقعة:* ${contactForm.budget}\n📝 *التفاصيل:* ${contactForm.details || 'لا يوجد تفاصيل إضافية'}`;
+                
+                const whatsappUrl = `https://wa.me/${AGENCY_CONFIG.ownerWhatsApp}?text=${encodeURIComponent(message)}`;
+                
+                // فتح واتساب للإدارة لتلقي البيانات
+                window.open(whatsappUrl, '_blank');
+                
+                setShowSuccessModal(true);
+            };
+
+            const handleAdminLogin = (e) => {
+                e.preventDefault();
+                if (passcode === "12345") {
+                    setIsAuthenticated(true);
+                    setPasscode("");
+                } else {
+                    alert("رمز المرور غير صحيح!");
+                }
+            };
+
+            const handleImageFileChange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        setNewItemImg(reader.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+
+            const handleAddOrUpdatePortfolio = (e) => {
+                e.preventDefault();
+                if (!newItemTitle) {
+                    alert("يرجى إدخال عنوان التصميم!");
+                    return;
+                }
+
+                if (editingPortfolioId) {
+                    setPortfolio(portfolio.map(p => {
+                        if (p.id === editingPortfolioId) {
+                            return {
+                                ...p,
+                                title: newItemTitle,
+                                category: newItemCategory,
+                                ratio: newItemRatio,
+                                image: newItemImg || p.image,
+                                desc: newItemDesc
+                            };
+                        }
+                        return p;
+                    }));
+                    alert("تم تعديل التصميم بنجاح!");
+                } else {
+                    if (!newItemImg) {
+                        alert("يرجى رفع صورة للتصميم!");
+                        return;
+                    }
+                    const newPort = {
+                        id: `port-${Date.now()}`,
+                        title: newItemTitle,
+                        category: newItemCategory,
+                        ratio: newItemRatio,
+                        image: newItemImg,
+                        desc: newItemDesc || "نموذج عمل جديد"
+                    };
+                    setPortfolio([newPort, ...portfolio]);
+                    alert("تمت إضافة التصميم بنجاح!");
+                }
+                resetPortfolioForm();
+            };
+
+            const handleEditPortfolioClick = (item) => {
+                setEditingPortfolioId(item.id);
+                setNewItemTitle(item.title);
+                setNewItemCategory(item.category);
+                setNewItemRatio(item.ratio || "aspect-square");
+                setNewItemDesc(item.desc || "");
+                setNewItemImg(item.image);
+                setAdminTab("add_portfolio");
+            };
+
+            const handleDeletePortfolio = (id) => {
+                if (confirm("هل أنت تأكد من رغبتك في حذف هذا التصميم؟")) {
+                    setPortfolio(portfolio.filter(p => p.id !== id));
+                }
+            };
+
+            const resetPortfolioForm = () => {
+                setEditingPortfolioId(null);
+                setNewItemTitle("");
+                setNewItemCategory("Social Media");
+                setNewItemRatio("aspect-square");
+                setNewItemDesc("");
+                setNewItemImg("");
+                setAdminTab("manage_portfolio");
+            };
+
+            return (
+                <div className="min-h-screen bg-white text-zinc-900 selection:bg-black selection:text-white relative">
+                    
+                    {/* Navigation Bar */}
+                    <nav className="sticky top-0 z-40 bw-glass px-4 md:px-8 py-3.5 transition-all">
+                        <div className="max-w-7xl mx-auto flex items-center justify-between">
+                            <a href="#" className="flex items-center gap-2 group">
+                                <div className="w-10 h-10 rounded-lg bg-black text-white font-black text-xl flex items-center justify-center tracking-tighter group-hover:bg-zinc-800 transition">
+                                    ES
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="font-extrabold text-lg leading-none tracking-wider text-black">AGENCY</span>
+                                    <span className="text-[9px] text-zinc-500 tracking-widest uppercase">Creative Studio</span>
+                                </div>
+                            </a>
+
+                            <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-zinc-700">
+                                <a href="#services" className="hover:text-black transition">الخدمات</a>
+                                <a href="#packs" className="hover:text-black transition">الباقات والأسعار</a>
+                                <a href="#portfolio" className="hover:text-black transition">معرض الأعمال</a>
+                                <a href="#why-us" className="hover:text-black transition">لماذا نحن؟</a>
+                                <a href="#process" className="hover:text-black transition">طريقة العمل</a>
+                                <a href="#policies" className="hover:text-black transition">السياسات</a>
+                            </div>
+
+                            <div className="hidden md:flex items-center gap-3">
+                                <button 
+                                    onClick={openMessenger}
+                                    className="bw-btn-primary px-5 py-2 rounded-lg text-xs tracking-wide flex items-center gap-2"
+                                >
+                                    <i data-lucide="message-square" className="w-4 h-4"></i>
+                                    تواصل ماسنجر
+                                </button>
+                            </div>
+
+                            <div className="flex md:hidden items-center gap-2">
+                                <button 
+                                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                    className="p-2 rounded-lg text-black border border-zinc-200"
+                                >
+                                    <i data-lucide={mobileMenuOpen ? "x" : "menu"} className="w-6 h-6"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        {mobileMenuOpen && (
+                            <div className="md:hidden pt-4 pb-3 border-t border-zinc-200 mt-3 space-y-3 px-2">
+                                <a href="#services" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-zinc-700 hover:text-black">الخدمات</a>
+                                <a href="#packs" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-zinc-700 hover:text-black">الباقات والأسعار</a>
+                                <a href="#portfolio" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-zinc-700 hover:text-black">معرض الأعمال</a>
+                                <a href="#why-us" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-zinc-700 hover:text-black">لماذا نحن؟</a>
+                                <a href="#process" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-zinc-700 hover:text-black">طريقة العمل</a>
+                                <a href="#policies" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-zinc-700 hover:text-black">السياسات</a>
+                                <a href="#contact" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-zinc-700 hover:text-black">تواصل معنا</a>
+                                <button 
+                                    onClick={() => { setMobileMenuOpen(false); openMessenger(); }}
+                                    className="w-full bw-btn-primary py-2.5 rounded-lg text-xs font-bold text-center mt-2 flex items-center justify-center gap-2"
+                                >
+                                    <i data-lucide="message-square" className="w-4 h-4"></i>
+                                    تواصل عبر ماسنجر
+                                </button>
+                            </div>
+                        )}
+                    </nav>
+
+                    {/* Hero Section */}
+                    <header className="relative pt-12 pb-16 md:pt-20 md:pb-28 px-4 max-w-7xl mx-auto text-center overflow-hidden">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-200 bg-zinc-50 text-zinc-700 text-xs font-medium mb-8">
+                            <span className="w-2 h-2 rounded-full bg-black animate-pulse"></span>
+                            وكالة تصميم وإعلانات موجهة للبيع والتفاعل
+                        </div>
+
+                        <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-black tracking-tight leading-none mb-6 max-w-5xl mx-auto">
+                            {AGENCY_CONFIG.headline}
+                        </h1>
+
+                        <p className="text-zinc-600 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed mb-8 font-normal">
+                            {AGENCY_CONFIG.subheadline}
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+                            <a 
+                                href="#contact"
+                                className="w-full sm:w-auto bw-btn-primary px-8 py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2"
+                            >
+                                <i data-lucide="phone-call" className="w-4 h-4"></i>
+                                اترك رقمك وتواصل معنا
+                            </a>
+                            <button 
+                                onClick={openMessenger}
+                                className="w-full sm:w-auto bw-btn-outline px-8 py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2"
+                            >
+                                <i data-lucide="message-square" className="w-4 h-4"></i>
+                                مراسلة مباشرة عبر ماسنجر
+                            </button>
+                        </div>
+
+                        {/* Showcase Grids */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto p-3 rounded-2xl border border-zinc-200 bg-zinc-50">
+                            <div className="aspect-square rounded-xl bg-white border border-zinc-200 overflow-hidden relative group shadow-sm">
+                                <img src="https://picsum.photos/600/600?random=1" alt="Showcase" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                                    <span className="text-[11px] font-bold text-white">أنيميشن كامل</span>
+                                </div>
+                            </div>
+                            <div className="aspect-square rounded-xl bg-white border border-zinc-200 overflow-hidden relative group shadow-sm">
+                                <img src="https://picsum.photos/600/600?random=2" alt="Showcase" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                                    <span className="text-[11px] font-bold text-white">دمج صور وحركة</span>
+                                </div>
+                            </div>
+                            <div className="aspect-square rounded-xl bg-white border border-zinc-200 overflow-hidden relative group shadow-sm">
+                                <img src="https://picsum.photos/600/600?random=3" alt="Showcase" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                                    <span className="text-[11px] font-bold text-white">تصاميم Reels</span>
+                                </div>
+                            </div>
+                            <div className="aspect-square rounded-xl bg-white border border-zinc-200 overflow-hidden relative group shadow-sm">
+                                <img src="https://picsum.photos/600/600?random=4" alt="Showcase" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                                    <span className="text-[11px] font-bold text-white">هوية بصرية</span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Services Section */}
+                    <section id="services" className="py-20 border-t border-zinc-200 px-4 max-w-7xl mx-auto">
+                        <div className="text-center max-w-2xl mx-auto mb-14">
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-black mb-3">خدماتنا الإبداعية</h2>
+                            <p className="text-zinc-600 text-xs sm:text-sm">حلول بصرية شاملة تغطي كافة احتياجاتك التسويقية برؤية احترافية ونشر موجه للنتائج.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {services.map((srv) => (
+                                <div 
+                                    key={srv.id}
+                                    onClick={() => setSelectedService(srv)}
+                                    className="bw-card rounded-2xl p-6 cursor-pointer flex flex-col justify-between group"
+                                >
+                                    <div>
+                                        <div className="flex justify-between items-start mb-4">
+                                            <span className="text-[10px] font-bold px-2.5 py-1 rounded bg-zinc-100 text-zinc-800 border border-zinc-200">
+                                                {srv.badge || srv.category}
+                                            </span>
+                                            <i data-lucide="arrow-up-left" className="w-5 h-5 text-zinc-400 group-hover:text-black transition"></i>
+                                        </div>
+                                        <h3 className="text-lg font-bold text-black mb-2 group-hover:text-zinc-700 transition">{srv.title}</h3>
+                                        <p className="text-zinc-600 text-xs line-clamp-3 mb-6 leading-relaxed">{srv.description}</p>
+                                    </div>
+
+                                    <div className="pt-4 border-t border-zinc-100 flex items-end justify-between">
+                                        <div>
+                                            <span className="text-[10px] text-zinc-500 block">يبدأ من:</span>
+                                            <span className="text-xl font-black text-black">{srv.price} <span className="text-xs font-normal text-zinc-500">ج.م</span></span>
+                                        </div>
+                                        <span className="text-[11px] text-zinc-500 font-medium">{srv.unit}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Pricing Packs */}
+                    <section id="packs" className="py-20 border-t border-zinc-200 px-4 max-w-7xl mx-auto bg-zinc-50">
+                        <div className="text-center max-w-2xl mx-auto mb-14">
+                            <span className="text-xs font-bold text-zinc-500 tracking-widest uppercase mb-2 block">خطط توفير موجهة للبيع</span>
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-black mb-3">الباقات والأسعار المعتمدة</h2>
+                            <p className="text-zinc-600 text-xs sm:text-sm">اختر الباقة المناسبة لميزانيتك واحصل على تغطية بصرية شاملة بأعلى توفير.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {packs.map((pack) => (
+                                <div 
+                                    key={pack.id}
+                                    className={`bw-card rounded-2xl p-6 flex flex-col justify-between relative ${
+                                        pack.recommended ? 'border-black bg-white shadow-xl ring-2 ring-black' : ''
+                                    }`}
+                                >
+                                    {pack.badge && (
+                                        <span className="absolute -top-3 right-6 bg-black text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
+                                            {pack.badge}
+                                        </span>
+                                    )}
+
+                                    <div>
+                                        <h3 className="text-xl font-extrabold text-black mb-2">{pack.name}</h3>
+                                        <div className="mb-6 pb-4 border-b border-zinc-100">
+                                            <span className="text-3xl font-black text-black">{pack.price}</span>
+                                            <span className="text-xs text-zinc-500 mr-1.5">{pack.unit}</span>
+                                        </div>
+
+                                        <ul className="space-y-3 mb-8">
+                                            {pack.features.map((feat, idx) => (
+                                                <li key={idx} className="text-xs text-zinc-700 flex items-start gap-2 leading-relaxed">
+                                                    <i data-lucide="check" className="w-4 h-4 text-black flex-shrink-0 mt-0.5"></i>
+                                                    {feat}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <button 
+                                        onClick={openMessenger}
+                                        className={`w-full py-3 rounded-xl font-bold text-xs transition flex items-center justify-center gap-2 ${
+                                            pack.recommended 
+                                                ? 'bw-btn-primary' 
+                                                : 'bw-btn-outline'
+                                        }`}
+                                    >
+                                        <i data-lucide="message-square" className="w-4 h-4"></i>
+                                        طلب الباقة عبر ماسنجر
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Portfolio Gallery */}
+                    <section id="portfolio" className="py-20 border-t border-zinc-200 px-4 max-w-7xl mx-auto">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                            <div>
+                                <h2 className="text-2xl sm:text-4xl font-extrabold text-black mb-2">معرض الأعمال</h2>
+                                <p className="text-zinc-600 text-xs sm:text-sm">استعرض نماذج من أعمالنا السابقة بمقاسات السوشيال ميديا الحقيقية.</p>
+                            </div>
+
+                            <div className="flex flex-wrap gap-2">
+                                {["All", "Video", "Ads", "Social Media", "Motion Graphics", "Branding"].map((cat) => (
+                                    <button 
+                                        key={cat}
+                                        onClick={() => setPortfolioFilter(cat)}
+                                        className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
+                                            portfolioFilter === cat 
+                                                ? 'bg-black text-white' 
+                                                : 'bg-zinc-100 text-zinc-600 hover:text-black border border-zinc-200'
+                                        }`}
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-start">
+                            {filteredPortfolio.map((item) => (
+                                <div 
+                                    key={item.id}
+                                    onClick={() => setSelectedPortfolio(item)}
+                                    className="bw-card rounded-2xl overflow-hidden p-3 cursor-pointer group"
+                                >
+                                    <div className={`w-full ${item.ratio || 'aspect-square'} rounded-xl overflow-hidden bg-zinc-100 relative`}>
+                                        <img 
+                                            src={item.image} 
+                                            alt={item.title}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                                            <span className="text-xs font-bold text-white flex items-center gap-1">
+                                                معاينة العمل <i data-lucide="eye" className="w-3.5 h-3.5"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="mt-3 flex items-center justify-between px-1">
+                                        <h3 className="text-xs font-bold text-black">{item.title}</h3>
+                                        <span className="text-[10px] text-zinc-600 bg-zinc-100 px-2 py-0.5 rounded border border-zinc-200">{item.category}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Why Us Section */}
+                    <section id="why-us" className="py-20 border-t border-zinc-200 px-4 max-w-7xl mx-auto bg-zinc-50">
+                        <div className="text-center max-w-2xl mx-auto mb-14">
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-black mb-3">لماذا تختار ES Agency؟</h2>
+                            <p className="text-zinc-600 text-xs sm:text-sm">نلتزم بالمعايير التي تضمن نجاح إعلانك وتحقيق أعلى عائد استثماري.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            {[
+                                { title: "تصميم مخصص 100%", desc: "لا نستخدم قوالب مستهلكة، كل تصميم يبنى من الصفر ليعبر عن براندك.", icon: "palette" },
+                                { title: "سرعة فائقة والتزام", desc: "التزام تام بمواعيد التسليم المحددة دون تأخير.", icon: "clock" },
+                                { title: "جودة إعلانية موجهة", desc: "نركز على العناصر التي تجذب العين وتدفع الزائر للتفاعل والشراء.", icon: "target" },
+                                { title: "تعديلات مرنة", desc: "تعديلات معتمدة لضمان رضاك التام عن النتيجة النهائية.", icon: "sliders" },
+                                { title: "اهتمام بأدق التفاصيل", desc: "تناسق الألوان، الخطوط، وتوزيع العناصر البصرية باحترافية.", icon: "check-circle" },
+                                { title: "تواصل مباشر عبر ماسنجر", desc: "متابعة لحظية ومباشرة عبر ماسنجر في جميع مراحل المشروع.", icon: "message-circle" },
+                                { title: "باقات متكاملة وموفرة", desc: "حلول تسويقية تغطي الفيديوهات والتصاميم بأسعار تنافسية.", icon: "shield-check" },
+                                { title: "دعم فني واستشاري", desc: "نقدم لك نصائح بصرية قبل وأثناء التنفيذ لأفضل نتيجة.", icon: "headphones" }
+                            ].map((item, idx) => (
+                                <div key={idx} className="p-6 rounded-2xl bg-white border border-zinc-200 shadow-sm">
+                                    <div className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center font-bold mb-4">
+                                        <i data-lucide={item.icon} className="w-5 h-5"></i>
+                                    </div>
+                                    <h3 className="font-bold text-sm text-black mb-2">{item.title}</h3>
+                                    <p className="text-zinc-600 text-xs leading-relaxed">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Process Section */}
+                    <section id="process" className="py-20 border-t border-zinc-200 px-4 max-w-7xl mx-auto">
+                        <div className="text-center max-w-2xl mx-auto mb-14">
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-black mb-3">طريقة العمل في 4 خطوات</h2>
+                            <p className="text-zinc-600 text-xs sm:text-sm">مسار عمل سلس وواضح يضمن تحويل فكرتك إلى واقع ملموس بسرعة.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            {[
+                                { step: "01", title: "اترك طلبك هنا", desc: "ادخل بياناتك وسوف تصل التفاصيل مباشرة لإدارتنا." },
+                                { step: "02", title: "نحدد المطلوب", desc: "نختار الخدمة أو الباقة المناسبة ونعتمد السكريبت والتفاصيل." },
+                                { step: "03", title: "يبدأ التصميم", desc: "يقوم فريقنا بالرسم والتحريك والمونتاج بأعلى معايير الجودة." },
+                                { step: "04", title: "استلام العمل النهائي", desc: "تستلم الفيديوهات والتصاميم جاهزة للنشر المباشر." }
+                            ].map((st, idx) => (
+                                <div key={idx} className="bw-card rounded-2xl p-6 relative border-t-2 border-t-black">
+                                    <span className="text-3xl font-black text-zinc-300 block mb-3">{st.step}</span>
+                                    <h3 className="font-bold text-base text-black mb-2">{st.title}</h3>
+                                    <p className="text-zinc-600 text-xs leading-relaxed">{st.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Policies Section */}
+                    <section id="policies" className="py-20 border-t border-zinc-200 px-4 max-w-5xl mx-auto">
+                        <div className="bw-glass rounded-3xl p-8 border border-zinc-200 shadow-sm">
+                            <h2 className="text-2xl font-extrabold text-black mb-6 flex items-center gap-2">
+                                <i data-lucide="shield" className="w-6 h-6"></i> سياسات العمل والضوابط المعتمدة
+                            </h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {INITIAL_POLICIES.map((pol, idx) => (
+                                    <div key={idx} className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                                        <h3 className="font-bold text-black text-xs md:text-sm mb-1.5">{pol.title}</h3>
+                                        <p className="text-zinc-600 text-xs leading-relaxed">{pol.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Contact Form Section (Sends details directly to Owner WhatsApp) */}
+                    <section id="contact" className="py-20 border-t border-zinc-200 px-4 max-w-4xl mx-auto">
+                        <div className="text-center mb-12">
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-black mb-3">سجل بياناتك للتواصل المباشر</h2>
+                            <p className="text-zinc-600 text-xs sm:text-sm">ادخل اسمك ورقم هاتفك وسوف تصل بيانات طلبك فوراً لإدارة الوكالة.</p>
+                        </div>
+
+                        <form onSubmit={handleContactSubmit} className="bw-card rounded-3xl p-6 sm:p-10 space-y-5 border border-zinc-200 shadow-sm">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label className="block text-xs font-bold text-zinc-700 mb-2">الاسم الكامل *</label>
+                                    <input 
+                                        type="text" 
+                                        required
+                                        value={contactForm.name}
+                                        onChange={(e)=>setContactForm({...contactForm, name: e.target.value})}
+                                        placeholder="أدخل اسمك"
+                                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-black focus:outline-none focus:border-black transition"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-zinc-700 mb-2">رقم الهاتف *</label>
+                                    <input 
+                                        type="tel" 
+                                        required
+                                        value={contactForm.phone}
+                                        onChange={(e)=>setContactForm({...contactForm, phone: e.target.value})}
+                                        placeholder="010XXXXXXXX"
+                                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-black focus:outline-none focus:border-black transition text-right"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label className="block text-xs font-bold text-zinc-700 mb-2">نوع الخدمة المطلوبة</label>
+                                    <select 
+                                        value={contactForm.service}
+                                        onChange={(e)=>setContactForm({...contactForm, service: e.target.value})}
+                                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-black focus:outline-none focus:border-black transition"
+                                    >
+                                        <option value="تصميم فيديو إعلاني">تصميم فيديو إعلاني (أنيميشن/دمج)</option>
+                                        <option value="مونتاج Reels & Shorts">مونتاج Reels & Shorts</option>
+                                        <option value="باقة تسويقية كاملة">طلب باقة تسويقية كاملة</option>
+                                        <option value="تصميم هوية بصرية">تصميم هوية بصرية</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-zinc-700 mb-2">الميزانية المتوقعة</label>
+                                    <select 
+                                        value={contactForm.budget}
+                                        onChange={(e)=>setContactForm({...contactForm, budget: e.target.value})}
+                                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-black focus:outline-none focus:border-black transition"
+                                    >
+                                        <option value="300 - 1000 ج.م">300 - 1000 ج.م</option>
+                                        <option value="1000 - 3000 ج.م">1000 - 3000 ج.م</option>
+                                        <option value="3000 - 5000 ج.م">3000 - 5000 ج.م</option>
+                                        <option value="أكثر من 5000 ج.م">أكثر من 5000 ج.م</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-zinc-700 mb-2">تفاصيل الفكرة أو مشروعك</label>
+                                <textarea 
+                                    rows="4"
+                                    value={contactForm.details}
+                                    onChange={(e)=>setContactForm({...contactForm, details: e.target.value})}
+                                    placeholder="اكتب وصفاً مختصراً عن المنتج أو الخدمة التي تريد الإعلان عنها..."
+                                    className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-black focus:outline-none focus:border-black transition resize-none"
+                                ></textarea>
+                            </div>
+
+                            <button 
+                                type="submit" 
+                                className="w-full py-4 rounded-xl bw-btn-primary font-bold text-xs sm:text-sm flex items-center justify-center gap-2"
+                            >
+                                <i data-lucide="send" className="w-4 h-4"></i>
+                                إرسال الطلب لإدارة الوكالة
+                            </button>
+                        </form>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="border-t border-zinc-200 bg-zinc-50 py-12 px-4">
+                        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                            <div>
+                                <div className="flex items-center gap-2 mb-4">
+                                    <div className="w-8 h-8 rounded bg-black text-white font-black flex items-center justify-center text-base">ES</div>
+                                    <span className="font-extrabold tracking-wider text-black">AGENCY</span>
+                                </div>
+                                <p className="text-zinc-600 text-xs leading-relaxed">وكالة صناعة المحتوى البصري، تحريك الأنيميشن، والتصاميم الموجهة لرفع نسبة المبيعات والتفاعل.</p>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold text-xs text-black uppercase tracking-wider mb-4">روابط السريعة</h4>
+                                <ul className="space-y-2 text-xs text-zinc-600">
+                                    <li><a href="#services" className="hover:text-black transition">الخدمات الإعلانية</a></li>
+                                    <li><a href="#packs" className="hover:text-black transition">الباقات والأسعار</a></li>
+                                    <li><a href="#portfolio" className="hover:text-black transition">معرض الأعمال</a></li>
+                                    <li><a href="#policies" className="hover:text-black transition">شروط وضوابط العمل</a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold text-xs text-black uppercase tracking-wider mb-4">التواصل المباشر</h4>
+                                <ul className="space-y-2 text-xs text-zinc-600">
+                                    <li>مراسلة ماسنجر المباشرة</li>
+                                    <li>اتصل بنا أو اترك رقمك بالنموذج</li>
+                                    <li>ساعات العمل: 10:00 ص - 10:00 م</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold text-xs text-black uppercase tracking-wider mb-4">منصات التواصل الاجتماعي</h4>
+                                <div className="flex items-center gap-3">
+                                    <a href={AGENCY_CONFIG.social.facebook} target="_blank" className="p-2.5 rounded-xl bg-white border border-zinc-200 text-zinc-700 hover:text-black hover:border-black transition" title="فيسبوك">
+                                        <i data-lucide="facebook" className="w-5 h-5"></i>
+                                    </a>
+                                    <a href={AGENCY_CONFIG.social.instagram} target="_blank" className="p-2.5 rounded-xl bg-white border border-zinc-200 text-zinc-700 hover:text-black hover:border-black transition" title="إنستجرام">
+                                        <i data-lucide="instagram" className="w-5 h-5"></i>
+                                    </a>
+                                    <a href={AGENCY_CONFIG.social.tiktok} target="_blank" className="p-2.5 rounded-xl bg-white border border-zinc-200 text-zinc-700 hover:text-black hover:border-black transition" title="تيك توك">
+                                        <i data-lucide="video" className="w-5 h-5"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="max-w-7xl mx-auto pt-8 border-t border-zinc-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500">
+                            <p>© {new Date().getFullYear()} {AGENCY_CONFIG.name}. جميع الحقوق محفوظة.</p>
+                            {/* Hidden subtle admin button at the bottom for owner only */}
+                            <button 
+                                onClick={() => setIsAdminOpen(true)}
+                                className="opacity-20 hover:opacity-100 transition p-1"
+                                title="لوحة التحكم"
+                            >
+                                <i data-lucide="lock" className="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </footer>
+
+                    {/* Floating Messenger Button */}
+                    <button 
+                        onClick={openMessenger}
+                        className="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-black text-white flex items-center justify-center shadow-2xl hover:scale-110 transition border border-zinc-800"
+                        title="تواصل معنا عبر ماسنجر"
+                    >
+                        <i data-lucide="message-square" className="w-7 h-7"></i>
+                    </button>
+
+                    {/* Success Contact Modal */}
+                    {showSuccessModal && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                            <div className="bw-card rounded-3xl p-6 sm:p-8 max-w-md w-full relative text-center border border-zinc-200 animate-in fade-in">
+                                <div className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-lucide="check" className="w-6 h-6"></i>
+                                </div>
+                                <h3 className="text-lg font-bold text-black mb-2">تم تجهيز بيانات طلبك!</h3>
+                                <p className="text-zinc-600 text-xs mb-6 leading-relaxed">
+                                    شكراً لك يا <strong>{contactForm.name}</strong>. تم تحويل بياناتك إلى الواتساب الخاص بالوكالة للتواصل السريع.
+                                </p>
+                                <div className="space-y-2">
+                                    <button 
+                                        onClick={() => { setShowSuccessModal(false); openMessenger(); }}
+                                        className="w-full py-3 rounded-xl bw-btn-primary font-bold text-xs flex items-center justify-center gap-2"
+                                    >
+                                        <i data-lucide="message-square" className="w-4 h-4"></i>
+                                        أو تواصل معنا فوراً عبر ماسنجر
+                                    </button>
+                                    <button 
+                                        onClick={() => {
+                                            setShowSuccessModal(false);
+                                            setContactForm({ name: "", phone: "", service: "تصميم فيديو إعلاني", budget: "300 - 1000 ج.م", details: "" });
+                                        }}
+                                        className="w-full py-2.5 rounded-xl text-zinc-500 text-xs font-semibold hover:text-black"
+                                    >
+                                        إغلاق
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Selected Service Modal */}
+                    {selectedService && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                            <div className="bw-card rounded-3xl p-6 sm:p-8 max-w-lg w-full relative border border-zinc-200">
+                                <button 
+                                    onClick={() => setSelectedService(null)}
+                                    className="absolute top-4 left-4 text-zinc-400 hover:text-black p-2"
+                                >
+                                    <i data-lucide="x" className="w-5 h-5"></i>
+                                </button>
+
+                                <span className="text-[10px] font-bold px-3 py-1 rounded bg-zinc-100 text-zinc-800 mb-3 inline-block">
+                                    {selectedService.badge || selectedService.category}
+                                </span>
+                                <h3 className="text-xl font-extrabold text-black mb-3">{selectedService.title}</h3>
+                                <p className="text-zinc-700 text-xs sm:text-sm leading-relaxed mb-6">{selectedService.description}</p>
+
+                                <div className="space-y-2 mb-6">
+                                    <h4 className="text-xs font-bold text-black">أهم المميزات:</h4>
+                                    {selectedService.features.map((f, i) => (
+                                        <div key={i} className="text-xs text-zinc-600 flex items-center gap-2">
+                                            <i data-lucide="check" className="w-3.5 h-3.5 text-black"></i>
+                                            {f}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex justify-between items-center mb-6">
+                                    <div>
+                                        <span className="text-[10px] text-zinc-500 block">التكلفة الأساسية:</span>
+                                        <span className="text-xl font-black text-black">{selectedService.price} ج.م</span>
+                                    </div>
+                                    <span className="text-xs text-zinc-600 font-medium">{selectedService.delivery}</span>
+                                </div>
+
+                                <button 
+                                    onClick={() => {
+                                        setSelectedService(null);
+                                        openMessenger();
+                                    }}
+                                    className="w-full py-3.5 rounded-xl bw-btn-primary font-bold text-xs sm:text-sm flex items-center justify-center gap-2"
+                                >
+                                    <i data-lucide="message-square" className="w-4 h-4"></i>
+                                    طلب الخدمة عبر ماسنجر
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Selected Portfolio Item Modal */}
+                    {selectedPortfolio && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                            <div className="bw-card rounded-3xl p-6 max-w-xl w-full relative border border-zinc-200">
+                                <button 
+                                    onClick={() => setSelectedPortfolio(null)}
+                                    className="absolute top-4 left-4 text-zinc-400 hover:text-black p-2 z-10"
+                                >
+                                    <i data-lucide="x" className="w-5 h-5"></i>
+                                </button>
+
+                                <div className="w-full aspect-square rounded-2xl overflow-hidden bg-zinc-100 mb-4 border border-zinc-200">
+                                    <img src={selectedPortfolio.image} alt={selectedPortfolio.title} className="w-full h-full object-cover" />
+                                </div>
+
+                                <h3 className="text-lg font-bold text-black mb-1">{selectedPortfolio.title}</h3>
+                                <p className="text-zinc-600 text-xs mb-4">{selectedPortfolio.desc}</p>
+
+                                <button 
+                                    onClick={() => {
+                                        setSelectedPortfolio(null);
+                                        openMessenger();
+                                    }}
+                                    className="w-full py-3 rounded-xl bw-btn-primary font-bold text-xs flex items-center justify-center gap-2"
+                                >
+                                    <i data-lucide="message-square" className="w-4 h-4"></i>
+                                    طلب تصميم مماثل عبر ماسنجر
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Admin Modal (Hidden Passcode with Secure Login) */}
+                    {isAdminOpen && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+                            <div className="bw-card rounded-3xl p-6 max-w-2xl w-full relative border border-zinc-200 max-h-[90vh] overflow-y-auto">
+                                <button 
+                                    onClick={() => { setIsAdminOpen(false); resetPortfolioForm(); }}
+                                    className="absolute top-4 left-4 text-zinc-400 hover:text-black p-2"
+                                >
+                                    <i data-lucide="x" className="w-5 h-5"></i>
+                                </button>
+
+                                {!isAuthenticated ? (
+                                    <form onSubmit={handleAdminLogin} className="space-y-4 pt-4 text-center max-w-sm mx-auto">
+                                        <i data-lucide="lock" className="w-8 h-8 text-black mx-auto mb-2"></i>
+                                        <h3 className="text-lg font-bold text-black">تسجيل دخول الإدارة</h3>
+
+                                        <input 
+                                            type="password"
+                                            value={passcode}
+                                            onChange={(e) => setPasscode(e.target.value)}
+                                            placeholder="أدخل رمز المرور السرّي"
+                                            className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-300 text-black text-center text-sm focus:outline-none focus:border-black"
+                                        />
+
+                                        <button type="submit" className="w-full py-3 rounded-xl bw-btn-primary font-bold text-xs">
+                                            دخول
+                                        </button>
+                                    </form>
+                                ) : (
+                                    <div>
+                                        <div className="flex border-b border-zinc-200 mb-6 gap-4">
+                                            <button 
+                                                onClick={() => { resetPortfolioForm(); setAdminTab("manage_portfolio"); }}
+                                                className={`text-xs font-bold pb-2 ${adminTab === "manage_portfolio" ? "text-black border-b-2 border-black" : "text-zinc-500"}`}
+                                            >
+                                                إدارة وحذف التصاميم ({portfolio.length})
+                                            </button>
+                                            <button 
+                                                onClick={() => setAdminTab("add_portfolio")}
+                                                className={`text-xs font-bold pb-2 ${adminTab === "add_portfolio" ? "text-black border-b-2 border-black" : "text-zinc-500"}`}
+                                            >
+                                                {editingPortfolioId ? "تعديل التصميم" : "+ إضافة تصميم جديد (صورة من الجهاز)"}
+                                            </button>
+                                        </div>
+
+                                        {adminTab === "manage_portfolio" && (
+                                            <div className="space-y-3">
+                                                <h4 className="text-xs font-bold text-zinc-600 mb-2">قائمة التصاميم الحالية في معرض الأعمال:</h4>
+                                                {portfolio.map((item) => (
+                                                    <div key={item.id} className="flex items-center justify-between p-3 rounded-xl bg-zinc-50 border border-zinc-200">
+                                                        <div className="flex items-center gap-3">
+                                                            <img src={item.image} alt={item.title} className="w-12 h-12 rounded-lg object-cover border border-zinc-200" />
+                                                            <div>
+                                                                <h5 className="text-xs font-bold text-black">{item.title}</h5>
+                                                                <span className="text-[10px] text-zinc-500">{item.category}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex items-center gap-2">
+                                                            <button 
+                                                                onClick={() => handleEditPortfolioClick(item)}
+                                                                className="px-3 py-1.5 rounded-lg bg-black text-white text-[11px] font-bold"
+                                                            >
+                                                                تعديل
+                                                            </button>
+                                                            <button 
+                                                                onClick={() => handleDeletePortfolio(item.id)}
+                                                                className="px-3 py-1.5 rounded-lg bg-red-600 text-white text-[11px] font-bold"
+                                                            >
+                                                                حذف
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        {adminTab === "add_portfolio" && (
+                                            <form onSubmit={handleAddOrUpdatePortfolio} className="space-y-4">
+                                                <div>
+                                                    <label className="block text-xs font-bold text-zinc-700 mb-1">عنوان العمل *</label>
+                                                    <input 
+                                                        type="text" 
+                                                        placeholder="مثال: تصميم إعلان منتج عطور"
+                                                        value={newItemTitle}
+                                                        onChange={(e)=>setNewItemTitle(e.target.value)}
+                                                        className="w-full p-3 rounded-xl bg-zinc-50 border border-zinc-300 text-xs text-black focus:outline-none focus:border-black"
+                                                    />
+                                                </div>
+
+                                                <div>
+                                                    <label className="block text-xs font-bold text-zinc-700 mb-1">رفع صورة من جهازك *</label>
+                                                    <input 
+                                                        type="file" 
+                                                        accept="image/*"
+                                                        onChange={handleImageFileChange}
+                                                        className="w-full p-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs text-zinc-700 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:bg-black file:text-white"
+                                                    />
+                                                    {newItemImg && (
+                                                        <div className="mt-2 flex items-center gap-2">
+                                                            <img src={newItemImg} alt="Preview" className="w-16 h-16 rounded-lg object-cover border border-zinc-300" />
+                                                            <span className="text-[11px] text-green-600 font-bold">تم تحميل الصورة جاهزة للحفظ</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                <div className="grid grid-cols-2 gap-3">
+                                                    <div>
+                                                        <label className="block text-xs font-bold text-zinc-700 mb-1">قسم العمل</label>
+                                                        <select 
+                                                            value={newItemCategory}
+                                                            onChange={(e)=>setNewItemCategory(e.target.value)}
+                                                            className="w-full p-3 rounded-xl bg-zinc-50 border border-zinc-300 text-xs text-black"
+                                                        >
+                                                            <option value="Video">Video</option>
+                                                            <option value="Ads">Ads</option>
+                                                            <option value="Social Media">Social Media</option>
+                                                            <option value="Motion Graphics">Motion Graphics</option>
+                                                            <option value="Branding">Branding</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-xs font-bold text-zinc-700 mb-1">أبعاد العرض</label>
+                                                        <select 
+                                                            value={newItemRatio}
+                                                            onChange={(e)=>setNewItemRatio(e.target.value)}
+                                                            className="w-full p-3 rounded-xl bg-zinc-50 border border-zinc-300 text-xs text-black"
+                                                        >
+                                                            <option value="aspect-square">مربع (1:1)</option>
+                                                            <option value="aspect-portrait">طولي بوستر (4:5)</option>
+                                                            <option value="aspect-story">ستوري/ريلز (9:16)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <label className="block text-xs font-bold text-zinc-700 mb-1">الوصف المختصر</label>
+                                                    <textarea 
+                                                        placeholder="تفاصيل مختصرة عن التصميم..."
+                                                        value={newItemDesc}
+                                                        onChange={(e)=>setNewItemDesc(e.target.value)}
+                                                        className="w-full p-3 rounded-xl bg-zinc-50 border border-zinc-300 text-xs text-black h-20 resize-none"
+                                                    ></textarea>
+                                                </div>
+
+                                                <div className="flex gap-2">
+                                                    <button type="submit" className="flex-1 py-3 rounded-xl bw-btn-primary font-bold text-xs">
+                                                        {editingPortfolioId ? "حفظ التعديلات" : "إضافة لمعرض الأعمال"}
+                                                    </button>
+                                                    {editingPortfolioId && (
+                                                        <button 
+                                                            type="button" 
+                                                            onClick={resetPortfolioForm}
+                                                            className="px-4 py-3 rounded-xl bg-zinc-200 text-black font-bold text-xs"
+                                                        >
+                                                            إلغاء
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </form>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<MainApp />);
+    </script>
+</body>
+</html>
