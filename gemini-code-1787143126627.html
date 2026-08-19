@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES Agency | وكالة صناعة المحتوى البصري والأنيميشن الاحترافي</title>
+    
+    <!-- SEO & Open Graph Meta Tags -->
+    <meta name="description" content="وكالة ES Agency متخصصة في تصميم الفيديوهات الإعلانية، تحريك الأنيميشن، الموشن جرافيك، المونتاج، والهويات البصرية الموجهة لزيادة المبيعات.">
+    <meta name="keywords" content="تصميم فيديوهات, تصميم إعلانات, مونتاج فيديو, تصميم سوشيال ميديا, مصمم إعلانات, تصميم Reels, Motion Graphics, ES Agency">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ES Agency | صناعة المحتوى البصري والأنيميشن">
+    <meta property="og:description" content="نحول فكرتك إلى تصميم إعلاني يلفت الانتباه ويضاعف أرباحك. خدمات أنيميشن وموشن جرافيك وتصاميم ثابتة.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#000000',
+                            dark: '#0a0a0a',
+                            card: '#121212',
+                            border: '#262626',
+                            muted: '#a3a3a3',
+                            light: '#e5e5e5',
+                            white: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- React & ReactDOM CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel Standalone for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .bw-glass {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .bw-card {
+            background: #0f0f0f;
+            border: 1px solid #222222;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bw-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(255, 255, 255, 0.15);
+        }
+
+        .bw-btn-primary {
+            background-color: #ffffff;
+            color: #000000;
+            font-weight: 700;
+            transition: all 0.25s ease;
+        }
+
+        .bw-btn-primary:hover {
+            background-color: #e5e5e5;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        .bw-btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #404040;
+            transition: all 0.25s ease;
+        }
+
+        .bw-btn-outline:hover {
+            border-color: #ffffff;
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .aspect-square { aspect-ratio: 1 / 1; }
+        .aspect-portrait { aspect-ratio: 4 / 5; }
+        .aspect-story { aspect-ratio: 9 / 16; }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #525252;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "ES Agency",
+      "image": "https://picsum.photos/800/800",
+      "description": "وكالة متخصصة في صناعة الفيديوهات الإعلانية والأنيميشن والتصاميم الجرافيكية للشركات.",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "EG"
+      }
+    }
+    </script>
+</head>
+<body class="selection:bg-white selection:text-black">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useMemo } = React;
+
+        const AGENCY_CONFIG = {
+            name: "ES Agency",
+            headline: "نحوّل فكرتك إلى تصميم يلفت الانتباه ويبيع.",
+            subheadline: "متخصصون في صناعة الفيديوهات الإعلانية، أنيميشن كامل، دمج الصور والتحريك، المونتاج الاحترافي، والتصاميم الموجهة لرفع المبيعات.",
+            whatsappNumber: "201000000000",
+            email: "contact@es-agency.com",
+            social: {
+                whatsapp: "https://wa.me/201000000000",
+                facebook: "https://facebook.com/esagency",
+                instagram: "https://instagram.com/esagency",
+                tiktok: "https://tiktok.com/@esagency"
+            }
+        };
+
+        const INITIAL_SERVICES = [
+            {
+                id: "srv-1",
+                title: "Pure Animation (أنيميشن كامل)",
+                category: "Motion Graphics",
+                price: 650,
+                unit: "للدقيقة",
+                delivery: "3 أيام عمل / للدقيقة",
+                badge: "الأعلى طلباً",
+                description: "إنتاج فيديو أنيميشن وموشن جرافيك مخصص بالكامل من الفكرة والسكريبت ورسم الشخصيات حتى التحريك النهائي.",
+                features: ["كتابة السكريبت الإعلاني", "رسم شخصيات مخصصة", "تحريك احترافي كامل", "مؤثرات صوتية وموسيقى"]
+            },
+            {
+                id: "srv-2",
+                title: "Mixed with Pic (دمج صور وأنيميشن)",
+                category: "Video",
+                price: 580,
+                unit: "للدقيقة",
+                delivery: "3 أيام عمل / للدقيقة",
+                badge: "متميز للمتاجر",
+                description: "دمج متناسق واحترافي بين صور المنتجات أو العناصر الحقيقية مع لمسات أنيميشن ومؤثرات كرتونية حركية.",
+                features: ["معالجة صور المنتجات", "إضافة عناصر أنيميشن", "مؤثرات بصرية حركية", "إخراج دايناميكي مشوق"]
+            },
+            {
+                id: "srv-3",
+                title: "Pictures + Words (تحريك صور ونصوص)",
+                category: "Video",
+                price: 480,
+                unit: "للدقيقة",
+                delivery: "3 أيام عمل / للدقيقة",
+                badge: "اقتصادي وسريع",
+                description: "عرض حركي سريع مخصص للإعلانات التي تهدف لإيصال الرسالة فوراً عبر تحريك النصوص والمنتجات.",
+                features: ["تحريك نصوص Typography", "انتقالات حركية سريعة", "مناسب للريلز والتيك توك", "إبراز المزايا والأسعار"]
+            },
+            {
+                id: "srv-4",
+                title: "Design / Static Post (تصميم إعلاني ثابت)",
+                category: "Social Media",
+                price: 180,
+                unit: "للتصميم الواحد",
+                delivery: "يومان عمل",
+                badge: "تصميم ثابت",
+                description: "تصميم إعلاني ثابت للسوشيال ميديا متناسق الهوية، مصمم خصيصاً لجذب العين وزيادة المبيعات.",
+                features: ["دمج الصور الاحترافي", "توزيع نصوص جذاب", "تسليم بمقاسات السوشيال", "هوية بصرية معتمدة"]
+            },
+            {
+                id: "srv-5",
+                title: "مونتاج Reels & Shorts احترافي",
+                category: "Video",
+                price: 350,
+                unit: "للفيديو",
+                delivery: "يومان عمل",
+                badge: "تريند",
+                description: "قص ومونتاج وإضافة نصوص حركية (Subtitles) ومؤثرات صوتية للفيديوهات الطولية لزيادة الانتشار.",
+                features: ["تفريغ ونصوص حركية", "مؤثرات B-Roll سريعة", "تعديل ألوان وتنقية صوت", "تصميم الغلاف Cover"]
+            },
+            {
+                id: "srv-6",
+                title: "تصميم إعلانات ممولة (Paid Ads)",
+                category: "Ads",
+                price: 450,
+                unit: "للإعلان",
+                delivery: "يومان عمل",
+                badge: "مباشر للبيع",
+                description: "تصاميم وفيديوهات قصيرة مركزة على الزر التفاعلي (CTA) والجمهور المستهدف لزيادة النقر وتحقيق أعلى ROI.",
+                features: ["تحليل الإعلان والمنافسين", "صياغة عنوان جذاب Hook", "تصميم يراعي معايير المنصات", "اختبار مقاسات مختلفة"]
+            },
+            {
+                id: "srv-7",
+                title: "تصميم هوية بصرية متكاملة (Branding)",
+                category: "Branding",
+                price: 2500,
+                unit: "للمشروع",
+                delivery: "7 أيام عمل",
+                badge: "شامل",
+                description: "بناء الهوية البصرية للشركات والمشروعات: الشعار، لوحة الألوان، الخطوط، ونماذج المطبوعات والتطبيقات.",
+                features: ["تصميم الشعار Logo", "دليل استخدامه Brand Guidelines", "تصميم المطبوعات الرئيسية", "قوالب السوشيال ميديا"]
+            },
+            {
+                id: "srv-8",
+                title: "تصاميم خاصة للشركات والمؤسسات",
+                category: "Branding",
+                price: 1500,
+                unit: "للملف",
+                delivery: "5 أيام عمل",
+                badge: "B2B",
+                description: "تصميم البروفايل التعريفي (Company Profile)، العروض التقديمية، والكتالوجات الاحترافية.",
+                features: ["تنظيم وتنسيق البيانات", "إنفوجرافيك مخصص", "جاهز للطباعة والعرض الرقمي", "ملفات مفتوحة للتعديل"]
+            }
+        ];
+
+        const INITIAL_PACKS = [
+            {
+                id: "pack-1",
+                name: "Starter Pack (باقة البداية)",
+                price: 1250,
+                unit: "جنيه مصري",
+                recommended: false,
+                features: [
+                    "فيديو أنيميشن دقيقة كاملة (1 Min Video)",
+                    "4 تصاميم إعلانية ثابتة (4 Posts)",
+                    "توفير ممتاز لبداية حملتك الإعلانية",
+                    "تسليم خلال 4 أيام عمل"
+                ]
+            },
+            {
+                id: "pack-2",
+                name: "Growth Pack (باقة النمو)",
+                price: 4080,
+                unit: "جنيه مصري",
+                recommended: true,
+                badge: "الأكثر مبيعاً",
+                features: [
+                    "4 فيديوهات أنيميشن دقيقة (4 Min Videos)",
+                    "12 تصميم إعلاني متنوع (12 Posts)",
+                    "تغطية تسويقية متكاملة لمشروعك",
+                    "أولوية التنفيذ والمتابعة"
+                ]
+            },
+            {
+                id: "pack-3",
+                name: "Posts Only Pack (باقة التصاميم)",
+                price: 3260,
+                unit: "جنيه مصري",
+                recommended: false,
+                features: [
+                    "32 تصميم إعلاني ثابت (32 Posts)",
+                    "مقسمة: كل 4 منشورات مترابطة بفكره",
+                    "تغطية شهرية كاملة (4 بوستات أسبوعياً)",
+                    "هوية متناسقة للحساب"
+                ]
+            },
+            {
+                id: "pack-4",
+                name: "Videos Only Pack (باقة الفيديوهات)",
+                price: 3120,
+                unit: "جنيه مصري",
+                recommended: false,
+                features: [
+                    "2 فيديو تحريك صور ونصوص (Pictures+Words)",
+                    "2 فيديو أنيميشن كامل (Pure Animation)",
+                    "2 فيديو دمج صور وأنيميشن (Mixed)",
+                    "إجمالي 6 فيديوهات حركية متكاملة"
+                ]
+            }
+        ];
+
+        const INITIAL_POLICIES = [
+            {
+                title: "مواعيد التسليم القياسية",
+                desc: "تسليم الفيديو خلال 3 أيام عمل لكل دقيقة | تسليم التصميم الثابت خلال يومين عمل (يبدأ العد بعد اعتماد الفكرة واستلام العربون)."
+            },
+            {
+                title: "نظام الدفع والتعاقد",
+                desc: "دفع 50% مبلغ عربون مقدم قبل البدء في العمل، والـ 50% المتبقية تسدد بعد استلام المعاينة النهائية وقبل تسليم الملفات."
+            },
+            {
+                title: "سياسة التعديلات المعتمدة",
+                desc: "التعديل مجاني مرة واحدة لكل تصميم ومرة واحدة لكل فيديو شريطة تجميد الملاحظات. أي تعديلات إضافية تكون برسوم 80 ج.م للتعديل."
+            },
+            {
+                title: "الملفات المفتوحة والصيغ",
+                desc: "تسليم الفيديوهات بصيغة MP4 والتصاميم بصيغ PNG/JPG جاهزة للنشر. طلب تسليم الملف المفتوح (PSD) يكون برسوم 50 ج.م لكل تصميم."
+            }
+        ];
+
+        const INITIAL_PORTFOLIO = [
+            { id: "p1", title: "إعلان أنيميشن لمتجر إلكتروني", category: "Motion Graphics", ratio: "aspect-square", image: "https://picsum.photos/800/800?random=11", desc: "فيديو أنيميشن كامل يعرض مزايا التطبيق بطريقة كرتونية شيقة." },
+            { id: "p2", title: "بوستر إعلاني لمشروب طبيعي", category: "Ads", ratio: "aspect-portrait", image: "https://picsum.photos/800/1000?random=12", desc: "تصميم ثابت موجه لزيادة المبيعات على إنستجرام وفيسبوك." },
+            { id: "p3", title: "ريلز حركي لسلسلة مطاعم", category: "Video", ratio: "aspect-story", image: "https://picsum.photos/720/1280?random=13", desc: "دمج بين تصوير الوجبات الحقيقي والمؤثرات النصية الحركية." },
+            { id: "p4", title: "هوية بصرية لشركة استشارات", category: "Branding", ratio: "aspect-portrait", image: "https://picsum.photos/800/1000?random=14", desc: "بناء الشعار ودليل الألوان والمطبوعات الرسمية بالكامل." },
+            { id: "p5", title: "حملة إعلانات سوشيال ميديا", category: "Social Media", ratio: "aspect-square", image: "https://picsum.photos/800/800?random=15", desc: "سلسلة تصاميم متناسقة لنشر المنتجات بشكل أسبوعي." },
+            { id: "p6", title: "فيديو دمج صور مع أنيميشن", category: "Motion Graphics", ratio: "aspect-story", image: "https://picsum.photos/720/1280?random=16", desc: "تحريك منتجات الساعات وتزيينها بمؤثرات كرتونية." }
+        ];
+
+        function MainApp() {
+            const [services, setServices] = useState(() => JSON.parse(localStorage.getItem('es_services')) || INITIAL_SERVICES);
+            const [packs, setPacks] = useState(() => JSON.parse(localStorage.getItem('es_packs')) || INITIAL_PACKS);
+            const [portfolio, setPortfolio] = useState(() => JSON.parse(localStorage.getItem('es_portfolio')) || INITIAL_PORTFOLIO);
+
+            const [portfolioFilter, setPortfolioFilter] = useState("All");
+            const [selectedService, setSelectedService] = useState(null);
+            const [selectedPortfolio, setSelectedPortfolio] = useState(null);
+            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+            const [isAdminOpen, setIsAdminOpen] = useState(false);
+            const [passcode, setPasscode] = useState("");
+            const [isAuthenticated, setIsAuthenticated] = useState(false);
+            const [adminTab, setAdminTab] = useState("service");
+
+            const [newItemTitle, setNewItemTitle] = useState("");
+            const [newItemPrice, setNewItemPrice] = useState("");
+            const [newItemDesc, setNewItemDesc] = useState("");
+            const [newItemCategory, setNewItemCategory] = useState("Social Media");
+            const [newItemImg, setNewItemImg] = useState("");
+            const [newItemRatio, setNewItemRatio] = useState("aspect-square");
+
+            const [contactForm, setContactForm] = useState({ name: "", phone: "", service: "تصميم فيديو إعلاني", budget: "300 - 1000 ج.م", details: "" });
+            const [formSubmitted, setFormSubmitted] = useState(false);
+
+            useEffect(() => {
+                localStorage.setItem('es_services', JSON.stringify(services));
+                localStorage.setItem('es_packs', JSON.stringify(packs));
+                localStorage.setItem('es_portfolio', JSON.stringify(portfolio));
+            }, [services, packs, portfolio]);
+
+            useEffect(() => {
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            }, [selectedService, selectedPortfolio, isAdminOpen, isAuthenticated, adminTab, mobileMenuOpen, portfolioFilter]);
+
+            const filteredPortfolio = useMemo(() => {
+                if (portfolioFilter === "All") return portfolio;
+                return portfolio.filter(item => item.category.toLowerCase() === portfolioFilter.toLowerCase());
+            }, [portfolio, portfolioFilter]);
+
+            const triggerWhatsAppOrder = (itemTitle, priceText = "") => {
+                const text = encodeURIComponent(`مرحباً وكالة ${AGENCY_CONFIG.name}، أريد الاستفسار عن وطلب: ${itemTitle} ${priceText ? `(بسعر ${priceText})` : ''}.`);
+                window.open(`${AGENCY_CONFIG.social.whatsapp}?text=${text}`, '_blank');
+            };
+
+            const handleContactSubmit = (e) => {
+                e.preventDefault();
+                if (!contactForm.name || !contactForm.phone) return;
+                
+                const text = encodeURIComponent(
+                    `طلب جديد من الموقع الرسمي:\n` +
+                    `الاسم: ${contactForm.name}\n` +
+                    `الهاتف: ${contactForm.phone}\n` +
+                    `الخدمة المطلوبة: ${contactForm.service}\n` +
+                    `الميزانية المتوقعة: ${contactForm.budget}\n` +
+                    `تفاصيل المشروع: ${contactForm.details || 'لا يوجد'}`
+                );
+                
+                setFormSubmitted(true);
+                setTimeout(() => {
+                    window.open(`${AGENCY_CONFIG.social.whatsapp}?text=${text}`, '_blank');
+                    setFormSubmitted(false);
+                    setContactForm({ name: "", phone: "", service: "تصميم فيديو إعلاني", budget: "300 - 1000 ج.م", details: "" });
+                }, 800);
+            };
+
+            const handleAdminLogin = (e) => {
+                e.preventDefault();
+                if (passcode === "12345") {
+                    setIsAuthenticated(true);
+                    setPasscode("");
+                } else {
+                    alert("كود المرور غير صحيح!");
+                }
+            };
+
+            const handleAddService = (e) => {
+                e.preventDefault();
+                if (!newItemTitle || !newItemPrice) return;
+                const newSrv = {
+                    id: `srv-${Date.now()}`,
+                    title: newItemTitle,
+                    category: newItemCategory,
+                    price: Number(newItemPrice),
+                    unit: "خدمة مخصصة",
+                    delivery: "حسب الاتفاق",
+                    badge: "جديد",
+                    description: newItemDesc || "تفاصيل الخدمة المضافة حديثاً.",
+                    features: ["تنفيذ احترافي", "تعديلات حسب الاتفاق", "جودة عالية"]
+                };
+                setServices([newSrv, ...services]);
+                resetAdminInputs();
+            };
+
+            const handleAddPortfolio = (e) => {
+                e.preventDefault();
+                if (!newItemTitle || !newItemImg) return;
+                const newPort = {
+                    id: `port-${Date.now()}`,
+                    title: newItemTitle,
+                    category: newItemCategory,
+                    ratio: newItemRatio,
+                    image: newItemImg,
+                    desc: newItemDesc || "نموذج عمل احترافي جديد."
+                };
+                setPortfolio([newPort, ...portfolio]);
+                resetAdminInputs();
+            };
+
+            const resetAdminInputs = () => {
+                setNewItemTitle("");
+                setNewItemPrice("");
+                setNewItemDesc("");
+                setNewItemImg("");
+                alert("تمت الإضافة بنجاح!");
+            };
+
+            return (
+                <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black relative">
+                    
+                    <nav className="sticky top-0 z-40 bw-glass border-b border-neutral-800 px-4 md:px-8 py-3.5 transition-all">
+                        <div className="max-w-7xl mx-auto flex items-center justify-between">
+                            <a href="#" className="flex items-center gap-2 group">
+                                <div className="w-10 h-10 rounded-lg bg-white text-black font-black text-xl flex items-center justify-center tracking-tighter group-hover:bg-neutral-200 transition">
+                                    ES
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="font-extrabold text-lg leading-none tracking-wider text-white">AGENCY</span>
+                                    <span className="text-[9px] text-neutral-400 tracking-widest uppercase">Creative Studio</span>
+                                </div>
+                            </a>
+
+                            <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
+                                <a href="#services" className="hover:text-white transition">الخدمات</a>
+                                <a href="#packs" className="hover:text-white transition">الباقات والأسعار</a>
+                                <a href="#portfolio" className="hover:text-white transition">معرض الأعمال</a>
+                                <a href="#why-us" className="hover:text-white transition">لماذا نحن؟</a>
+                                <a href="#process" className="hover:text-white transition">طريقة العمل</a>
+                                <a href="#policies" className="hover:text-white transition">السياسات</a>
+                            </div>
+
+                            <div className="hidden md:flex items-center gap-3">
+                                <button 
+                                    onClick={() => triggerWhatsAppOrder("استفسار عام")}
+                                    className="bw-btn-primary px-5 py-2 rounded-lg text-xs tracking-wide flex items-center gap-2"
+                                >
+                                    <i data-lucide="message-square" className="w-4 h-4"></i>
+                                    اطلب مشروعك
+                                </button>
+                                <button 
+                                    onClick={() => setIsAdminOpen(true)}
+                                    className="p-2 rounded-lg text-neutral-500 hover:text-white hover:bg-neutral-900 border border-neutral-800 transition"
+                                    title="لوحة الإدارة"
+                                >
+                                    <i data-lucide="lock" className="w-4 h-4"></i>
+                                </button>
+                            </div>
+
+                            <div className="flex md:hidden items-center gap-2">
+                                <button 
+                                    onClick={() => setIsAdminOpen(true)}
+                                    className="p-2 rounded-lg text-neutral-400 border border-neutral-800"
+                                >
+                                    <i data-lucide="lock" className="w-4 h-4"></i>
+                                </button>
+                                <button 
+                                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                    className="p-2 rounded-lg text-white border border-neutral-800"
+                                >
+                                    <i data-lucide={mobileMenuOpen ? "x" : "menu"} className="w-6 h-6"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        {mobileMenuOpen && (
+                            <div className="md:hidden pt-4 pb-3 border-t border-neutral-800 mt-3 space-y-3 px-2">
+                                <a href="#services" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-neutral-300 hover:text-white">الخدمات</a>
+                                <a href="#packs" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-neutral-300 hover:text-white">الباقات والأسعار</a>
+                                <a href="#portfolio" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-neutral-300 hover:text-white">معرض الأعمال</a>
+                                <a href="#why-us" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-neutral-300 hover:text-white">لماذا نحن؟</a>
+                                <a href="#process" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-neutral-300 hover:text-white">طريقة العمل</a>
+                                <a href="#policies" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-neutral-300 hover:text-white">السياسات</a>
+                                <a href="#contact" onClick={()=>setMobileMenuOpen(false)} className="block text-sm font-medium text-neutral-300 hover:text-white">تواصل معنا</a>
+                                <button 
+                                    onClick={() => { setMobileMenuOpen(false); triggerWhatsAppOrder("تواصل مباشر"); }}
+                                    className="w-full bw-btn-primary py-2.5 rounded-lg text-xs font-bold text-center mt-2"
+                                >
+                                    تواصل عبر واتساب
+                                </button>
+                            </div>
+                        )}
+                    </nav>
+
+                    <header className="relative pt-16 pb-20 md:pt-24 md:pb-32 px-4 max-w-7xl mx-auto text-center overflow-hidden">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-neutral-800 bg-neutral-950 text-neutral-300 text-xs font-medium mb-8">
+                            <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                            وكالة تصميم وإعلانات موجهة للبيع والتفاعل
+                        </div>
+
+                        <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tight leading-none mb-6 max-w-5xl mx-auto">
+                            {AGENCY_CONFIG.headline}
+                        </h1>
+
+                        <p className="text-neutral-400 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed mb-10 font-normal">
+                            {AGENCY_CONFIG.subheadline}
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                            <a 
+                                href="#contact"
+                                className="w-full sm:w-auto bw-btn-primary px-8 py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2"
+                            >
+                                <i data-lucide="sparkles" className="w-4 h-4"></i>
+                                اطلب تصميمك الآن
+                            </a>
+                            <a 
+                                href="#portfolio"
+                                className="w-full sm:w-auto bw-btn-outline px-8 py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2"
+                            >
+                                <i data-lucide="play-circle" className="w-4 h-4"></i>
+                                شاهد أعمالنا
+                            </a>
+                        </div>
+
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto p-3 rounded-2xl border border-neutral-800 bg-neutral-950/80">
+                            <div className="aspect-square rounded-xl bg-neutral-900 border border-neutral-800 overflow-hidden relative group">
+                                <img src="https://picsum.photos/600/600?random=1" alt="Showcase" className="w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 group-hover:opacity-100 transition duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-3">
+                                    <span className="text-[11px] font-bold text-white">أنيميشن كامل</span>
+                                </div>
+                            </div>
+                            <div className="aspect-square rounded-xl bg-neutral-900 border border-neutral-800 overflow-hidden relative group">
+                                <img src="https://picsum.photos/600/600?random=2" alt="Showcase" className="w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 group-hover:opacity-100 transition duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-3">
+                                    <span className="text-[11px] font-bold text-white">دمج صور وحركة</span>
+                                </div>
+                            </div>
+                            <div className="aspect-square rounded-xl bg-neutral-900 border border-neutral-800 overflow-hidden relative group">
+                                <img src="https://picsum.photos/600/600?random=3" alt="Showcase" className="w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 group-hover:opacity-100 transition duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-3">
+                                    <span className="text-[11px] font-bold text-white">تصاميم Reels</span>
+                                </div>
+                            </div>
+                            <div className="aspect-square rounded-xl bg-neutral-900 border border-neutral-800 overflow-hidden relative group">
+                                <img src="https://picsum.photos/600/600?random=4" alt="Showcase" className="w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 group-hover:opacity-100 transition duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-3">
+                                    <span className="text-[11px] font-bold text-white">إعلانات ممولة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <section id="services" className="py-20 border-t border-neutral-900 px-4 max-w-7xl mx-auto">
+                        <div className="text-center max-w-2xl mx-auto mb-14">
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-3">خدماتنا الإبداعية</h2>
+                            <p className="text-neutral-400 text-xs sm:text-sm">حلول بصرية شاملة تغطي كافة احتياجاتك التسويقية برؤية احترافية ونشر موجه للنتائج.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {services.map((srv) => (
+                                <div 
+                                    key={srv.id}
+                                    onClick={() => setSelectedService(srv)}
+                                    className="bw-card rounded-2xl p-6 cursor-pointer flex flex-col justify-between group"
+                                >
+                                    <div>
+                                        <div className="flex justify-between items-start mb-4">
+                                            <span className="text-[10px] font-bold px-2.5 py-1 rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                                                {srv.badge || srv.category}
+                                            </span>
+                                            <i data-lucide="arrow-up-left" className="w-5 h-5 text-neutral-500 group-hover:text-white transition"></i>
+                                        </div>
+                                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-neutral-200 transition">{srv.title}</h3>
+                                        <p className="text-neutral-400 text-xs line-clamp-3 mb-6 leading-relaxed">{srv.description}</p>
+                                    </div>
+
+                                    <div className="pt-4 border-t border-neutral-800/80 flex items-end justify-between">
+                                        <div>
+                                            <span className="text-[10px] text-neutral-500 block">يبدأ من:</span>
+                                            <span className="text-xl font-black text-white">{srv.price} <span className="text-xs font-normal text-neutral-400">ج.م</span></span>
+                                        </div>
+                                        <span className="text-[11px] text-neutral-400">{srv.unit}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section id="packs" className="py-20 border-t border-neutral-900 px-4 max-w-7xl mx-auto bg-neutral-950/40">
+                        <div className="text-center max-w-2xl mx-auto mb-14">
+                            <span className="text-xs font-bold text-neutral-400 tracking-widest uppercase mb-2 block">خطط توفير موجهة للبيع</span>
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-3">الباقات والأسعار المعتمدة</h2>
+                            <p className="text-neutral-400 text-xs sm:text-sm">اختر الباقة المناسبة لميزانيتك واحصل على تغطية بصرية شاملة بأعلى توفير.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {packs.map((pack) => (
+                                <div 
+                                    key={pack.id}
+                                    className={`bw-card rounded-2xl p-6 flex flex-col justify-between relative ${
+                                        pack.recommended ? 'border-white bg-neutral-900 shadow-2xl' : ''
+                                    }`}
+                                >
+                                    {pack.badge && (
+                                        <span className="absolute -top-3 right-6 bg-white text-black text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
+                                            {pack.badge}
+                                        </span>
+                                    )}
+
+                                    <div>
+                                        <h3 className="text-xl font-extrabold text-white mb-2">{pack.name}</h3>
+                                        <div className="mb-6 pb-4 border-b border-neutral-800">
+                                            <span className="text-3xl font-black text-white">{pack.price}</span>
+                                            <span className="text-xs text-neutral-400 mr-1.5">{pack.unit}</span>
+                                        </div>
+
+                                        <ul className="space-y-3 mb-8">
+                                            {pack.features.map((feat, idx) => (
+                                                <li key={idx} className="text-xs text-neutral-300 flex items-start gap-2 leading-relaxed">
+                                                    <i data-lucide="check" className="w-4 h-4 text-white flex-shrink-0 mt-0.5"></i>
+                                                    {feat}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <button 
+                                        onClick={() => triggerWhatsAppOrder(pack.name, `${pack.price} ج.م`)}
+                                        className={`w-full py-3 rounded-xl font-bold text-xs transition ${
+                                            pack.recommended 
+                                                ? 'bw-btn-primary' 
+                                                : 'bw-btn-outline'
+                                        }`}
+                                    >
+                                        طلب الباقة الآن
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section id="portfolio" className="py-20 border-t border-neutral-900 px-4 max-w-7xl mx-auto">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                            <div>
+                                <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-2">معرض الأعمال</h2>
+                                <p className="text-neutral-400 text-xs sm:text-sm">استعرض نماذج من أعمالنا السابقة بمقاسات السوشيال ميديا الحقيقية.</p>
+                            </div>
+
+                            <div className="flex flex-wrap gap-2">
+                                {["All", "Video", "Ads", "Social Media", "Motion Graphics", "Branding"].map((cat) => (
+                                    <button 
+                                        key={cat}
+                                        onClick={() => setPortfolioFilter(cat)}
+                                        className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
+                                            portfolioFilter === cat 
+                                                ? 'bg-white text-black' 
+                                                : 'bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800'
+                                        }`}
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-start">
+                            {filteredPortfolio.map((item) => (
+                                <div 
+                                    key={item.id}
+                                    onClick={() => setSelectedPortfolio(item)}
+                                    className="bw-card rounded-2xl overflow-hidden p-3 cursor-pointer group"
+                                >
+                                    <div className={`w-full ${item.ratio} rounded-xl overflow-hidden bg-neutral-900 relative`}>
+                                        <img 
+                                            src={item.image} 
+                                            alt={item.title}
+                                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                                            <span className="text-xs font-bold text-white flex items-center gap-1">
+                                                معاينة العمل <i data-lucide="eye" className="w-3.5 h-3.5"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="mt-3 flex items-center justify-between px-1">
+                                        <h3 className="text-xs font-bold text-white">{item.title}</h3>
+                                        <span className="text-[10px] text-neutral-400 bg-neutral-900 px-2 py-0.5 rounded border border-neutral-800">{item.category}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section id="why-us" className="py-20 border-t border-neutral-900 px-4 max-w-7xl mx-auto bg-neutral-950/30">
+                        <div className="text-center max-w-2xl mx-auto mb-14">
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-3">لماذا تختار ES Agency؟</h2>
+                            <p className="text-neutral-400 text-xs sm:text-sm">نلتزم بالمعايير التي تضمن نجاح إعلانك وتحقيق أعلى عائد استثماري.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            {[
+                                { title: "تصميم مخصص 100%", desc: "لا نستخدم قوالب مستهلكة، كل تصميم يبنى من الصفر ليعبر عن براندك.", icon: "palette" },
+                                { title: "سرعة فائقة والتزام", desc: "التزام تام بمواعيد التسليم المحددة دون تأخير.", icon: "clock" },
+                                { title: "جودة إعلانية موجهة", desc: "نركز على العناصر التي تجذب العين وتدفع الزائر للتفاعل والشراء.", icon: "target" },
+                                { title: "تعديلات مرنة", desc: "تعديلات معتمدة لضمان رضاك التام عن النتيجة النهائية.", icon: "sliders" },
+                                { title: "اهتمام بأدق التفاصيل", desc: "تناسق الألوان، الخطوط، وتوزيع العناصر البصرية باحترافية.", icon: "check-circle" },
+                                { title: "تواصل مباشر وسريع", desc: "متابعة لحظية ومباشرة عبر واتساب في جميع مراحل المشروع.", icon: "message-circle" },
+                                { title: "باقات متكاملة وموفرة", desc: "حلول تسويقية تغطي الفيديوهات والتصاميم بأسعار تنافسية.", icon: "shield-check" },
+                                { title: "دعم فني واستشاري", desc: "نقدم لك نصائح بصرية قبل وأثناء التنفيذ لأفضل نتيجة.", icon: "headphones" }
+                            ].map((item, idx) => (
+                                <div key={idx} className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80">
+                                    <div className="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center font-bold mb-4">
+                                        <i data-lucide={item.icon} className="w-5 h-5"></i>
+                                    </div>
+                                    <h3 className="font-bold text-sm text-white mb-2">{item.title}</h3>
+                                    <p className="text-neutral-400 text-xs leading-relaxed">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section id="process" className="py-20 border-t border-neutral-900 px-4 max-w-7xl mx-auto">
+                        <div className="text-center max-w-2xl mx-auto mb-14">
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-3">طريقة العمل في 4 خطوات</h2>
+                            <p className="text-neutral-400 text-xs sm:text-sm">مسار عمل سلس وواضح يضمن تحويل فكرتك إلى واقع ملموس بسرعة.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            {[
+                                { step: "01", title: "أرسل فكرتك", desc: "تواصل معنا واشرح التفاصيل أو العرض الذي تريد التسويق له." },
+                                { step: "02", title: "نحدد المطلوب", desc: "نختار الخدمة أو الباقة المناسبة ونعتمد السكريبت والعربون." },
+                                { step: "03", title: "يبدأ التصميم", desc: "يقوم فريقنا بالرسم والتحريك والمونتاج بأعلى معايير الجودة." },
+                                { step: "04", title: "استلام العمل النهائي", desc: "تستلم الفيديوهات والتصاميم جاهزة للنشر المباشر." }
+                            ].map((st, idx) => (
+                                <div key={idx} className="bw-card rounded-2xl p-6 relative border-t-2 border-t-white">
+                                    <span className="text-3xl font-black text-neutral-700 block mb-3">{st.step}</span>
+                                    <h3 className="font-bold text-base text-white mb-2">{st.title}</h3>
+                                    <p className="text-neutral-400 text-xs leading-relaxed">{st.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section id="policies" className="py-20 border-t border-neutral-900 px-4 max-w-5xl mx-auto">
+                        <div className="bw-glass rounded-3xl p-8 border border-neutral-800">
+                            <h2 className="text-2xl font-extrabold text-white mb-6 flex items-center gap-2">
+                                <i data-lucide="shield" className="w-6 h-6"></i> سياسات العمل والضوابط المعتمدة
+                            </h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {INITIAL_POLICIES.map((pol, idx) => (
+                                    <div key={idx} className="p-4 rounded-xl bg-neutral-900 border border-neutral-800">
+                                        <h3 className="font-bold text-white text-xs md:text-sm mb-1.5">{pol.title}</h3>
+                                        <p className="text-neutral-400 text-xs leading-relaxed">{pol.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="contact" className="py-20 border-t border-neutral-900 px-4 max-w-4xl mx-auto">
+                        <div className="text-center mb-12">
+                            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-3">ابدأ مشروعك معنا اليوم</h2>
+                            <p className="text-neutral-400 text-xs sm:text-sm">املأ البيانات التالية وسنتواصل معك فوراً عبر الواتساب لتأكيد التفاصيل.</p>
+                        </div>
+
+                        <form onSubmit={handleContactSubmit} className="bw-card rounded-3xl p-6 sm:p-10 space-y-5 border border-neutral-800">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label className="block text-xs font-bold text-neutral-300 mb-2">الاسم الكامل *</label>
+                                    <input 
+                                        type="text" 
+                                        required
+                                        value={contactForm.name}
+                                        onChange={(e)=>setContactForm({...contactForm, name: e.target.value})}
+                                        placeholder="أدخل اسمك"
+                                        className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-xs text-white focus:outline-none focus:border-white transition"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-neutral-300 mb-2">رقم الهاتف / الواتساب *</label>
+                                    <input 
+                                        type="tel" 
+                                        required
+                                        value={contactForm.phone}
+                                        onChange={(e)=>setContactForm({...contactForm, phone: e.target.value})}
+                                        placeholder="010XXXXXXXX"
+                                        className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-xs text-white focus:outline-none focus:border-white transition text-right"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label className="block text-xs font-bold text-neutral-300 mb-2">نوع الخدمة المطلوبة</label>
+                                    <select 
+                                        value={contactForm.service}
+                                        onChange={(e)=>setContactForm({...contactForm, service: e.target.value})}
+                                        className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-xs text-white focus:outline-none focus:border-white transition"
+                                    >
+                                        <option value="تصميم فيديو إعلاني">تصميم فيديو إعلاني (أنيميشن/دمج)</option>
+                                        <option value="مونتاج Reels & Shorts">مونتاج Reels & Shorts</option>
+                                        <option value="تصميم إعلانات ممولة">تصميم إعلانات ممولة</option>
+                                        <option value="باقة تسويقية كاملة">طلب باقة تسويقية كاملة</option>
+                                        <option value="تصميم هوية بصرية">تصميم هوية بصرية</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-neutral-300 mb-2">الميزانية المتوقعة</label>
+                                    <select 
+                                        value={contactForm.budget}
+                                        onChange={(e)=>setContactForm({...contactForm, budget: e.target.value})}
+                                        className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-xs text-white focus:outline-none focus:border-white transition"
+                                    >
+                                        <option value="300 - 1000 ج.م">300 - 1000 ج.م</option>
+                                        <option value="1000 - 3000 ج.م">1000 - 3000 ج.م</option>
+                                        <option value="3000 - 5000 ج.م">3000 - 5000 ج.م</option>
+                                        <option value="أكثر من 5000 ج.م">أكثر من 5000 ج.م</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-neutral-300 mb-2">تفاصيل الفكرة أو مشروعك</label>
+                                <textarea 
+                                    rows="4"
+                                    value={contactForm.details}
+                                    onChange={(e)=>setContactForm({...contactForm, details: e.target.value})}
+                                    placeholder="اكتب وصفاً مختصراً عن المنتج أو الخدمة التي تريد الإعلان عنها..."
+                                    className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-xs text-white focus:outline-none focus:border-white transition resize-none"
+                                ></textarea>
+                            </div>
+
+                            <button 
+                                type="submit" 
+                                disabled={formSubmitted}
+                                className="w-full py-4 rounded-xl bw-btn-primary font-bold text-xs sm:text-sm flex items-center justify-center gap-2"
+                            >
+                                <i data-lucide="send" className="w-4 h-4"></i>
+                                {formSubmitted ? "جاري التوجيه للواتساب..." : "إرسال الطلب مباشرة عبر الواتساب"}
+                            </button>
+                        </form>
+                    </section>
+
+                    <section className="py-16 border-t border-neutral-900 px-4 max-w-7xl mx-auto text-center">
+                        <div className="bw-glass rounded-3xl p-10 max-w-4xl mx-auto border border-neutral-800">
+                            <h2 className="text-2xl sm:text-4xl font-black text-white mb-4">جاهز لتحويل فكرتك إلى إعلان يلفت الانتباه؟</h2>
+                            <p className="text-neutral-400 text-xs sm:text-sm mb-8">تواصل معنا الآن واحصل على استشارة مجانية لمشروعك.</p>
+                            <button 
+                                onClick={() => triggerWhatsAppOrder("استفسار واستشارة مجانية")}
+                                className="bw-btn-primary px-8 py-4 rounded-xl text-sm font-bold inline-flex items-center gap-2"
+                            >
+                                <i data-lucide="phone-call" className="w-4 h-4"></i>
+                                ابدأ مشروعك الآن على الواتساب
+                            </button>
+                        </div>
+                    </section>
+
+                    <footer className="border-t border-neutral-900 bg-neutral-950 py-12 px-4">
+                        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                            <div>
+                                <div className="flex items-center gap-2 mb-4">
+                                    <div className="w-8 h-8 rounded bg-white text-black font-black flex items-center justify-center text-base">ES</div>
+                                    <span className="font-extrabold tracking-wider text-white">AGENCY</span>
+                                </div>
+                                <p className="text-neutral-400 text-xs leading-relaxed">وكالة صناعة المحتوى البصري، تحريك الأنيميشن، والتصاميم الموجهة لرفع نسبة المبيعات والتفاعل.</p>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold text-xs text-white uppercase tracking-wider mb-4">روابط السريعة</h4>
+                                <ul className="space-y-2 text-xs text-neutral-400">
+                                    <li><a href="#services" className="hover:text-white transition">الخدمات الإعلانية</a></li>
+                                    <li><a href="#packs" className="hover:text-white transition">الباقات والأسعار</a></li>
+                                    <li><a href="#portfolio" className="hover:text-white transition">معرض الأعمال</a></li>
+                                    <li><a href="#policies" className="hover:text-white transition">شروط وضوابط العمل</a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold text-xs text-white uppercase tracking-wider mb-4">التواصل المباشر</h4>
+                                <ul className="space-y-2 text-xs text-neutral-400">
+                                    <li>الواتساب المباشر: {AGENCY_CONFIG.whatsappNumber}</li>
+                                    <li>البريد الإلكتروني: {AGENCY_CONFIG.email}</li>
+                                    <li>ساعات العمل: 10:00 ص - 10:00 م</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold text-xs text-white uppercase tracking-wider mb-4">منصات التواصل</h4>
+                                <div className="flex items-center gap-3">
+                                    <a href={AGENCY_CONFIG.social.facebook} target="_blank" className="p-2 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white transition">
+                                        <i data-lucide="facebook" className="w-4 h-4"></i>
+                                    </a>
+                                    <a href={AGENCY_CONFIG.social.instagram} target="_blank" className="p-2 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white transition">
+                                        <i data-lucide="instagram" className="w-4 h-4"></i>
+                                    </a>
+                                    <a href={AGENCY_CONFIG.social.tiktok} target="_blank" className="p-2 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white transition">
+                                        <i data-lucide="video" className="w-4 h-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="max-w-7xl mx-auto pt-8 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
+                            <p>© {new Date().getFullYear()} {AGENCY_CONFIG.name}. جميع الحقوق محفوظة.</p>
+                            <p>تصميم وتطوير واجهة العرض المباشر Production Ready.</p>
+                        </div>
+                    </footer>
+
+                    <a 
+                        href={`${AGENCY_CONFIG.social.whatsapp}?text=${encodeURIComponent("مرحباً، أريد الاستفسار عن خدمات التصميم والمونتاج.")}`}
+                        target="_blank"
+                        className="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-white text-black flex items-center justify-center shadow-2xl hover:scale-110 transition border border-neutral-200 group"
+                        title="تواصل معنا عبر واتساب"
+                    >
+                        <i data-lucide="message-circle" className="w-7 h-7"></i>
+                    </a>
+
+                    {selectedService && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+                            <div className="bw-card rounded-3xl p-6 sm:p-8 max-w-lg w-full relative border border-neutral-700 animate-in fade-in duration-200">
+                                <button 
+                                    onClick={() => setSelectedService(null)}
+                                    className="absolute top-4 left-4 text-neutral-400 hover:text-white p-2"
+                                >
+                                    <i data-lucide="x" className="w-5 h-5"></i>
+                                </button>
+
+                                <span className="text-[10px] font-bold px-3 py-1 rounded bg-neutral-800 text-neutral-300 mb-3 inline-block">
+                                    {selectedService.badge || selectedService.category}
+                                </span>
+                                <h3 className="text-xl font-extrabold text-white mb-3">{selectedService.title}</h3>
+                                <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6">{selectedService.description}</p>
+
+                                <div className="space-y-2 mb-6">
+                                    <h4 className="text-xs font-bold text-white">أهم المميزات:</h4>
+                                    {selectedService.features.map((f, i) => (
+                                        <div key={i} className="text-xs text-neutral-400 flex items-center gap-2">
+                                            <i data-lucide="check" className="w-3.5 h-3.5 text-white"></i>
+                                            {f}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="p-4 rounded-xl bg-neutral-900 border border-neutral-800 flex justify-between items-center mb-6">
+                                    <div>
+                                        <span className="text-[10px] text-neutral-500 block">التكلفة الأساسية:</span>
+                                        <span className="text-xl font-black text-white">{selectedService.price} ج.م</span>
+                                    </div>
+                                    <span className="text-xs text-neutral-400">{selectedService.delivery}</span>
+                                </div>
+
+                                <button 
+                                    onClick={() => {
+                                        const srv = selectedService;
+                                        setSelectedService(null);
+                                        triggerWhatsAppOrder(srv.title, `${srv.price} ج.م`);
+                                    }}
+                                    className="w-full py-3.5 rounded-xl bw-btn-primary font-bold text-xs sm:text-sm flex items-center justify-center gap-2"
+                                >
+                                    طلب الخدمة مباشرة
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {selectedPortfolio && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+                            <div className="bw-card rounded-3xl p-6 max-w-xl w-full relative border border-neutral-700">
+                                <button 
+                                    onClick={() => setSelectedPortfolio(null)}
+                                    className="absolute top-4 left-4 text-neutral-400 hover:text-white p-2 z-10"
+                                >
+                                    <i data-lucide="x" className="w-5 h-5"></i>
+                                </button>
+
+                                <div className="w-full aspect-square rounded-2xl overflow-hidden bg-neutral-900 mb-4 border border-neutral-800">
+                                    <img src={selectedPortfolio.image} alt={selectedPortfolio.title} className="w-full h-full object-cover" />
+                                </div>
+
+                                <h3 className="text-lg font-bold text-white mb-1">{selectedPortfolio.title}</h3>
+                                <p className="text-neutral-400 text-xs mb-4">{selectedPortfolio.desc}</p>
+
+                                <button 
+                                    onClick={() => {
+                                        const port = selectedPortfolio;
+                                        setSelectedPortfolio(null);
+                                        triggerWhatsAppOrder(`مشروع مماثل لـ: ${port.title}`);
+                                    }}
+                                    className="w-full py-3 rounded-xl bw-btn-primary font-bold text-xs"
+                                >
+                                    طلب تصميم مماثل
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {isAdminOpen && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+                            <div className="bw-card rounded-3xl p-6 max-w-md w-full relative border border-neutral-700">
+                                <button 
+                                    onClick={() => setIsAdminOpen(false)}
+                                    className="absolute top-4 left-4 text-neutral-400 hover:text-white p-2"
+                                >
+                                    <i data-lucide="x" className="w-5 h-5"></i>
+                                </button>
+
+                                {!isAuthenticated ? (
+                                    <form onSubmit={handleAdminLogin} className="space-y-4 pt-4">
+                                        <div className="text-center mb-4">
+                                            <i data-lucide="lock" className="w-8 h-8 text-white mx-auto mb-2"></i>
+                                            <h3 className="text-lg font-bold text-white">لوحة الإدارة السريّة</h3>
+                                            <p className="text-xs text-neutral-400">أدخل كود المرور للوصول لإمكانية إضافة الخدمات والأعمال</p>
+                                        </div>
+
+                                        <input 
+                                            type="password"
+                                            value={passcode}
+                                            onChange={(e) => setPasscode(e.target.value)}
+                                            placeholder="أدخل كود المرور"
+                                            className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-700 text-white text-center text-sm focus:outline-none focus:border-white"
+                                        />
+
+                                        <button type="submit" className="w-full py-3 rounded-xl bw-btn-primary font-bold text-xs">
+                                            تأكيد الدخول
+                                        </button>
+                                    </form>
+                                ) : (
+                                    <div>
+                                        <div className="flex border-b border-neutral-800 mb-4 pb-2 gap-4">
+                                            <button 
+                                                onClick={() => setAdminTab("service")}
+                                                className={`text-xs font-bold ${adminTab === "service" ? "text-white border-b-2 border-white pb-1" : "text-neutral-500"}`}
+                                            >
+                                                + إضافة خدمة
+                                            </button>
+                                            <button 
+                                                onClick={() => setAdminTab("portfolio")}
+                                                className={`text-xs font-bold ${adminTab === "portfolio" ? "text-white border-b-2 border-white pb-1" : "text-neutral-500"}`}
+                                            >
+                                                + إضافة عمل جديد
+                                            </button>
+                                        </div>
+
+                                        {adminTab === "service" ? (
+                                            <form onSubmit={handleAddService} className="space-y-3">
+                                                <input 
+                                                    type="text" 
+                                                    placeholder="عنوان الخدمة"
+                                                    value={newItemTitle}
+                                                    onChange={(e)=>setNewItemTitle(e.target.value)}
+                                                    className="w-full p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-white"
+                                                />
+                                                <input 
+                                                    type="number" 
+                                                    placeholder="السعر (بالجنيه)"
+                                                    value={newItemPrice}
+                                                    onChange={(e)=>setNewItemPrice(e.target.value)}
+                                                    className="w-full p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-white"
+                                                />
+                                                <textarea 
+                                                    placeholder="الوصف المختصر"
+                                                    value={newItemDesc}
+                                                    onChange={(e)=>setNewItemDesc(e.target.value)}
+                                                    className="w-full p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-white h-20"
+                                                ></textarea>
+                                                <button type="submit" className="w-full py-2.5 rounded-xl bw-btn-primary font-bold text-xs">
+                                                    حفظ الخدمة
+                                                </button>
+                                            </form>
+                                        ) : (
+                                            <form onSubmit={handleAddPortfolio} className="space-y-3">
+                                                <input 
+                                                    type="text" 
+                                                    placeholder="عنوان العمل"
+                                                    value={newItemTitle}
+                                                    onChange={(e)=>setNewItemTitle(e.target.value)}
+                                                    className="w-full p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-white"
+                                                />
+                                                <input 
+                                                    type="text" 
+                                                    placeholder="رابط الصورة (Image URL)"
+                                                    value={newItemImg}
+                                                    onChange={(e)=>setNewItemImg(e.target.value)}
+                                                    className="w-full p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-white"
+                                                />
+                                                <select 
+                                                    value={newItemCategory}
+                                                    onChange={(e)=>setNewItemCategory(e.target.value)}
+                                                    className="w-full p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-white"
+                                                >
+                                                    <option value="Video">Video</option>
+                                                    <option value="Ads">Ads</option>
+                                                    <option value="Social Media">Social Media</option>
+                                                    <option value="Motion Graphics">Motion Graphics</option>
+                                                    <option value="Branding">Branding</option>
+                                                </select>
+                                                <button type="submit" className="w-full py-2.5 rounded-xl bw-btn-primary font-bold text-xs">
+                                                    حفظ العمل
+                                                </button>
+                                            </form>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<MainApp />);
+    </script>
+</body>
+</html>
