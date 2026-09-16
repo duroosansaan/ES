@@ -1,0 +1,6 @@
+{
+  "name": "ES Design Agency",
+  "description": "Follow The Future Changes - وكالة متخصصة في تصميم المحتوى البصري والهوية المتميزة والفيديوهات القصيرة والمواقع الخاصة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

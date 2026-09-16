@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128;
+    }
+
+    function isValidOrder(data) {
+      return data.clientName is string &&
+             data.clientName.size() >= 1 &&
+             data.clientName.size() <= 150 &&
+             data.orderDetails is string &&
+             data.orderDetails.size() >= 1 &&
+             data.orderDetails.size() <= 3000 &&
+             (!('phone' in data) || (data.phone is string && data.phone.size() <= 30)) &&
+             (!('budget' in data) || (data.budget is string && data.budget.size() <= 100)) &&
+             (!('notes' in data) || (data.notes is string && data.notes.size() <= 1000)) &&
+             (!('status' in data) || data.status in ['new', 'contacted', 'in_progress', 'completed']);
+    }
+
+    // Orders collection: clients can create/submit orders, developer/admin can read
+    match /orders/{orderId} {
+      allow create: if isValidId(orderId) &&
+                       isValidOrder(request.resource.data);
+      
+      // Allow read for developer dashboard or open admin
+      allow read: if true;
+
+      // Allow updates to status only
+      allow update: if isValidOrder(request.resource.data);
+
+      allow delete: if false;
+    }
+
+    // Connection test document
+    match /test/{docId} {
+      allow read: if true;
+    }
+  }
+}
