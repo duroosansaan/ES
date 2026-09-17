@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES Agency | وكالة صناعة المحتوى البصري والأنيميشن</title>
+  <meta name="description" content="وكالة ES Agency متخصصة في تصميم الفيديوهات الإعلانية، الأنيميشن، الموشن جرافيك، الهويات البصرية، والتصاميم التسويقية.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif'],
+            display: ['Outfit', 'Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #ffffff;
+      color: #09090b;
+    }
+    .font-brand {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.04em;
+    }
+    .bw-card {
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bw-card:hover {
+      border-color: #18181b;
+      transform: translateY(-2px);
+    }
+    .bw-btn-primary {
+      background-color: #09090b;
+      color: #ffffff;
+      transition: all 0.15s ease;
+    }
+    .bw-btn-primary:hover {
+      background-color: #27272a;
+      transform: translateY(-1px);
+    }
+    .bw-btn-secondary {
+      background-color: #f4f4f5;
+      color: #09090b;
+      border: 1px solid #e4e4e7;
+      transition: all 0.15s ease;
+    }
+    .bw-btn-secondary:hover {
+      background-color: #e4e4e7;
+    }
+  </style>
+</head>
+<body class="bg-white text-zinc-900 antialiased selection:bg-black selection:text-white">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="#" class="flex items-center gap-2">
+          <div id="site-header-logo" class="w-9 h-9 rounded-xl bg-black text-white flex items-center justify-center font-black text-sm font-brand tracking-tighter overflow-hidden">
+            ES
+          </div>
+          <div>
+            <span class="font-brand font-black text-base text-black tracking-tight block leading-none">ES AGENCY</span>
+            <span class="text-[9px] text-zinc-600 font-bold tracking-wide">CONTENT & ANIMATION</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs font-bold text-zinc-600">
+        <a href="#services" class="hover:text-black transition-colors">الخدمات الفردية</a>
+        <a href="#offers" class="hover:text-black transition-colors">باقات العروض</a>
+        <a href="#portfolio" class="hover:text-black transition-colors">معرض الأعمال</a>
+        <a href="#policies" class="hover:text-black transition-colors">سياسات العمل</a>
+        <a href="#contact" class="hover:text-black transition-colors">طلب الخدمة</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button onclick="openAdminModal()" class="p-2 rounded-xl border border-zinc-200 text-zinc-700 hover:text-black hover:border-black transition-all flex items-center gap-1 text-xs font-bold" title="إدارة وإضافة التصاميم">
+          <i data-lucide="lock" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">لوحة التحكم</span>
+        </button>
+        <a href="https://wa.me/201020185275" target="_blank" class="px-4 py-2 rounded-xl bw-btn-primary text-xs font-bold flex items-center gap-1.5 shadow-sm">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>تواصل واتساب</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-16 pb-12 px-4 sm:px-6 border-b border-zinc-200 overflow-hidden bg-gradient-to-b from-zinc-50 to-white text-center">
+    <div class="max-w-4xl mx-auto space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-300 bg-white text-xs font-bold text-zinc-800 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-black animate-pulse"></span>
+        وكالة متخصصة في صناعة المحتوى البصري والأنيميشن
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-black leading-tight tracking-tight">
+        نحوّل أفكارك التسويقية إلى <br/>
+        <span class="underline decoration-zinc-300 underline-offset-8">فيديوهات وتصاميم تُبهر جمهورك</span>
+      </h1>
+
+      <p class="text-sm sm:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
+        تصميم إعلانات موشن جرافيك سينمائية، أنيميشن ثنائي وثلاثي الأبعاد، وتصاميم سوشيال ميديا مدروسة لزيادة مبيعاتك وتفاعل علامتك التجارية.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="#services" class="px-6 py-3 rounded-xl bw-btn-primary font-bold text-xs sm:text-sm flex items-center gap-2 shadow-sm">
+          <span>استعراض الخدمات والأسعار</span>
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        </a>
+        <a href="#portfolio" class="px-6 py-3 rounded-xl bw-btn-secondary font-bold text-xs sm:text-sm flex items-center gap-2">
+          <span>شاهد معرض الأعمال</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Showcase Section -->
+  <section class="py-12 px-4 sm:px-6 border-b border-zinc-200 bg-zinc-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold text-zinc-600 uppercase tracking-wider block mb-1">Interactive Showcase</span>
+          <h2 class="text-xl sm:text-2xl font-black text-black">المعرض الدوار التفاعلي</h2>
+        </div>
+        <button onclick="openAdminModalWithSection('carousel')" class="px-3 py-1.5 rounded-xl border border-zinc-300 hover:border-black bg-white text-xs font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i>
+          <span>+ إضافة تصميم للمعرض الدوار</span>
+        </button>
+      </div>
+
+      <div class="relative overflow-hidden py-4">
+        <div id="carousel-track" class="flex gap-4 transition-transform duration-300 ease-out">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 px-4 sm:px-6 border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-bold text-zinc-600 uppercase tracking-wider block mb-1">Pricing & Services</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-black mb-3">قائمة الخدمات الفردية</h2>
+        <p class="text-xs sm:text-sm text-zinc-600">أسعار واضحة ومحددة مع مدد تسليم قياسية لضمان أسرع تنفيذ</p>
+      </div>
+
+      <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers & Packages Section -->
+  <section id="offers" class="py-16 px-4 sm:px-6 border-b border-zinc-200 bg-zinc-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-bold text-zinc-600 uppercase tracking-wider block mb-1">Special Bundles</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-black mb-3">باقات العروض التوفيرية</h2>
+        <p class="text-xs sm:text-sm text-zinc-600">خصومات حصرية وحزم متكاملة لإطلاق حملتك الإعلانية بقوة</p>
+      </div>
+
+      <div id="offers-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-16 px-4 sm:px-6 border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div>
+          <span class="text-xs font-bold text-zinc-600 uppercase tracking-wider block mb-1">Our Work</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-black">معرض الأعمال والمشاريع</h2>
+        </div>
+        <button onclick="openAdminModalWithSection('portfolio')" class="px-3 py-1.5 rounded-xl border border-zinc-300 hover:border-black bg-white text-xs font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i>
+          <span>+ إضافة تصميم لمعرض الأعمال</span>
+        </button>
+      </div>
+
+      <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Policies Section -->
+  <section id="policies" class="py-16 px-4 sm:px-6 border-b border-zinc-200 bg-zinc-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-bold text-zinc-600 uppercase tracking-wider block mb-1">Workflow Guidelines</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-black mb-3">سياسات وشروط العمل المعتمدة</h2>
+        <p class="text-xs sm:text-sm text-zinc-600">نلتزم بالوضوح التام لضمان أعلى جودة في أقل وقت ممكن</p>
+      </div>
+
+      <div id="policies-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Request Section -->
+  <section id="contact" class="py-16 px-4 sm:px-6 border-b border-zinc-200">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-black text-black mb-3">اطلب مشروعك الإعلاني الآن</h2>
+      <p class="text-xs sm:text-sm text-zinc-600 mb-8">املأ البيانات وسنتواصل معك فوراً عبر واتساب لبدء التنفيذ</p>
+
+      <form onsubmit="handleContactSubmit(event)" class="bw-card p-6 sm:p-8 rounded-2xl text-right space-y-4 shadow-sm">
+        <div>
+          <label class="block text-xs font-bold text-zinc-700 mb-1.5">الاسم الكريم *</label>
+          <input type="text" id="form-name" required placeholder="أدخل اسمك" class="w-full p-2.5 rounded-xl border border-zinc-300 text-xs focus:outline-none focus:border-black">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-zinc-700 mb-1.5">رقم الهاتف أو الواتساب *</label>
+          <input type="tel" id="form-phone" required placeholder="مثال: 01020185275" class="w-full p-2.5 rounded-xl border border-zinc-300 text-xs focus:outline-none focus:border-black" dir="ltr">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-zinc-700 mb-1.5">الخدمة المطلوبة *</label>
+          <select id="form-service" class="w-full p-2.5 rounded-xl border border-zinc-300 text-xs focus:outline-none focus:border-black">
+            <option>فيديو أنيميشن احترافي كامل (1200 ج.م)</option>
+            <option>دمج صور سينمائي إعلاني (450 ج.م)</option>
+            <option>تصميم سوشيال ميديا ثابت (250 ج.م)</option>
+            <option>تصميم لوجو وهوية بصرية (800 ج.م)</option>
+            <option>باقة انطلاقة الأعمال (1500 ج.م)</option>
+            <option>باقة الفيديو الشامل (2200 ج.م)</option>
+            <option>باقة التغطية الشهرية الكاملة (3800 ج.م)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-zinc-700 mb-1.5">تفاصيل إضافية عن المشروع</label>
+          <textarea id="form-details" rows="3" placeholder="اكتب نبذة عن فكرتك أو متطلباتك..." class="w-full p-2.5 rounded-xl border border-zinc-300 text-xs focus:outline-none focus:border-black resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bw-btn-primary font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>إرسال الطلب عبر واتساب ومتابعة الحجز</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 border-t border-zinc-200 text-center text-xs text-zinc-500 bg-white">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-brand font-black text-black">
+        <span>ES AGENCY</span>
+        <span class="text-zinc-400 font-normal">| All Rights Reserved 2026</span>
+      </div>
+      <div class="flex items-center gap-4 text-zinc-600 font-bold">
+        <a href="https://wa.me/201020185275" target="_blank" class="hover:text-black">واتساب: 01020185275</a>
+        <span>•</span>
+        <a href="https://m.me/eslam.thabt" target="_blank" class="hover:text-black">ماسنجر: eslam.thabt</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Admin Modal -->
+  <div id="admin-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bw-card rounded-2xl p-6 max-w-md w-full relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeAdminModal()" class="absolute top-4 left-4 text-zinc-400 hover:text-black">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="admin-auth-box" class="text-center py-4">
+        <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center mx-auto mb-3 text-black">
+          <i data-lucide="lock" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-black mb-1">لوحة تحكم وإدارة الموقع</h3>
+        <p class="text-xs text-zinc-500 mb-4">منطقة خاصة بالمطور - ادخل رمز المرور السري</p>
+        <input type="password" id="admin-passcode" placeholder="••••••••" class="w-full p-2.5 rounded-xl border border-zinc-300 text-center text-sm font-bold tracking-widest mb-3">
+        <button onclick="verifyPasscode()" class="w-full py-2.5 rounded-xl bw-btn-primary font-bold text-xs">تأكيد الرمز</button>
+      </div>
+
+      <div id="admin-upload-box" class="hidden">
+        <!-- Tabs -->
+        <div class="flex border-b border-zinc-200 mb-4 text-xs font-bold">
+          <button type="button" onclick="switchHtmlAdminTab('design')" id="tab-btn-design" class="flex-1 py-2 text-center border-b-2 border-black text-black">
+            إضافة تصميم
+          </button>
+          <button type="button" onclick="switchHtmlAdminTab('logo')" id="tab-btn-logo" class="flex-1 py-2 text-center border-b-2 border-transparent text-zinc-500 hover:text-black">
+            تغيير اللوجو
+          </button>
+          <button type="button" onclick="switchHtmlAdminTab('repo')" id="tab-btn-repo" class="flex-1 py-2 text-center border-b-2 border-transparent text-zinc-500 hover:text-black">
+            GitHub و Vercel
+          </button>
+        </div>
+
+        <!-- Tab 1: Design -->
+        <div id="pane-design">
+          <div class="mb-3">
+            <label class="block text-xs font-bold text-zinc-700 mb-1">حدد مكان إضافة التصميم في الموقع:</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="loc-portfolio" onclick="setHtmlTargetSection('portfolio')" class="p-2 rounded-xl text-xs font-bold border bg-black text-white border-black text-center">
+                معرض الأعمال
+              </button>
+              <button type="button" id="loc-carousel" onclick="setHtmlTargetSection('carousel')" class="p-2 rounded-xl text-xs font-bold border bg-zinc-50 text-zinc-700 border-zinc-200 text-center">
+                المعرض الدوار
+              </button>
+            </div>
+          </div>
+
+          <form onsubmit="handleNewDesign(event)" class="space-y-3">
+            <div>
+              <label class="block text-xs font-bold text-zinc-700 mb-1">عنوان التصميم *</label>
+              <input type="text" id="design-title" required placeholder="مثال: إعلان عصير فريش مودرن" class="w-full p-2 rounded-xl border border-zinc-300 text-xs">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-zinc-700 mb-1">صورة التصميم *</label>
+              <input type="file" id="design-file" accept="image/*" required onchange="previewImage(event)" class="w-full p-2 rounded-xl border border-zinc-300 text-xs file:mr-2 file:py-1 file:px-2 file:rounded file:bg-black file:text-white file:border-0 text-[11px]">
+              <img id="image-preview" class="hidden w-20 h-20 rounded-lg object-cover border mt-2">
+            </div>
+
+            <div id="category-group">
+              <label class="block text-xs font-bold text-zinc-700 mb-1">قسم التصميم</label>
+              <select id="design-category" class="w-full p-2 rounded-xl border border-zinc-300 text-xs">
+                <option value="Social Media">Social Media</option>
+                <option value="Video">Video</option>
+                <option value="Ads">Ads</option>
+                <option value="Motion Graphics">Motion Graphics</option>
+                <option value="Branding">Branding</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-zinc-700 mb-1">وصف مختصر</label>
+              <textarea id="design-desc" rows="2" placeholder="وصف للتصميم..." class="w-full p-2 rounded-xl border border-zinc-300 text-xs resize-none"></textarea>
+            </div>
+
+            <button type="submit" id="submit-design-btn" class="w-full py-2.5 rounded-xl bw-btn-primary font-bold text-xs">
+              حفظ ونشر التصميم في الموقع
+            </button>
+          </form>
+        </div>
+
+        <!-- Tab 2: Logo -->
+        <div id="pane-logo" class="hidden space-y-4 text-center py-2">
+          <div class="p-3 bg-zinc-50 rounded-xl border border-zinc-200">
+            <span class="text-xs text-zinc-500 font-bold block mb-2">معاينة الشعار الحالي:</span>
+            <div id="html-logo-preview" class="w-16 h-16 mx-auto rounded-xl bg-black text-white font-black text-xl flex items-center justify-center border">
+              ES
+            </div>
+          </div>
+          <div class="text-right">
+            <label class="block text-xs font-bold text-zinc-700 mb-1">اختيار ملف الشعار الجديد من جهازك:</label>
+            <input type="file" id="logo-file-input" accept="image/*" onchange="previewHtmlLogo(event)" class="w-full p-2 rounded-xl border border-zinc-300 text-xs file:mr-2 file:py-1 file:px-2 file:rounded file:bg-black file:text-white file:border-0 text-[11px]">
+          </div>
+          <div class="grid grid-cols-2 gap-2 pt-2">
+            <button type="button" onclick="saveHtmlLogo()" class="py-2.5 rounded-xl bw-btn-primary font-bold text-xs">
+              حفظ الشعار في الموقع
+            </button>
+            <button type="button" onclick="resetHtmlLogo()" class="py-2.5 rounded-xl border border-zinc-300 font-bold text-xs hover:bg-zinc-100">
+              استعادة الافتراضي
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 3: GitHub -->
+        <div id="pane-repo" class="hidden space-y-3 py-2 text-xs text-zinc-700">
+          <div class="p-3 bg-zinc-100 rounded-xl border border-zinc-200">
+            <p class="font-bold mb-1">المستودع المربوط على GitHub:</p>
+            <code class="font-bold text-black bg-white px-2 py-1 rounded border">sdesign-vercel-app</code>
+            <p class="text-[11px] text-zinc-500 mt-2">الموقع مهيأ بالكامل للنشر الفوري والمباشر على Vercel بدون فقدان أي بيانات.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Data structures
+    const SERVICES = [
+      { id: '1', title: 'فيديو أنيميشن احترافي كامل', price: 1200, delivery: '2-4 أيام', description: 'سكربت تسويقي + تعليق صوتي + تحريك سينمائي عالي الجودة' },
+      { id: '2', title: 'دمج صور سينمائي إعلاني (Manipulation)', price: 450, delivery: '24-48 ساعة', description: 'دمج عناصر متعددة مع معالجة إضاءة وظلال واقعية' },
+      { id: '3', title: 'تصميم بوست سوشيال ميديا ثابت', price: 250, delivery: '24 ساعة', description: 'تصميم دعائي احترافي بهوية متناسقة وألوان مدروسة' },
+      { id: '4', title: 'تصميم شعار وهوية بصرية (Branding)', price: 800, delivery: '2-3 أيام', description: 'لوجو فيكتور أصلي + لوحة ألوان + خطوط الهوية + موك اب' }
+    ];
+
+    const OFFERS = [
+      { id: 'o1', title: 'باقة انطلاقة الأعمال', price: 1500, originalPrice: 2000, savings: 'وفر 500 ج.م', description: 'فيديو أنيميشن 30 ثانية + 3 تصاميم سوشيال ميديا مدمجة' },
+      { id: 'o2', title: 'باقة الفيديو الشامل', price: 2200, originalPrice: 3000, savings: 'وفر 800 ج.م', description: 'فيديو أنيميشن 60 ثانية + تعليق صوتي مصري/فصحى + نسخة ستوري ريلز', popular: true },
+      { id: 'o3', title: 'باقة التغطية الشهرية الكاملة', price: 3800, originalPrice: 5000, savings: 'وفر 1200 ج.م', description: '2 فيديو أنيميشن + 10 تصاميم سوشيال ميديا + كتابة المحتوى التسويقي' }
+    ];
+
+    let defaultPortfolio = [
+      { id: 'p1', title: 'تصميم عصير برتقال سينمائي منعش', category: 'Ads', desc: 'دمج عناصر طبيعية وقطرات ندى حقيقية مع علامة المنتج التجارية.', image: 'https://images.unsplash.com/photo-1613478223719-2ab802602423?w=800&auto=format&fit=crop&q=80' },
+      { id: 'p2', title: 'فيديو إعلاني لساعة فاخرة كلاسيكية', category: 'Video', desc: 'تحريك موشن سينمائي عالي الدقة لإظهار جودة وتروس الساعة.', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80' },
+      { id: 'p3', title: 'بوستر فيلم خيال علمي وثائقي', category: 'Motion Graphics', desc: 'معالجة جرافيك متقدمة وتأثيرات ضوئية ملفتة للانتباه.', image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&auto=format&fit=crop&q=80' }
+    ];
+
+    let portfolio = JSON.parse(localStorage.getItem('es_portfolio')) || defaultPortfolio;
+
+    const POLICIES = [
+      { title: 'عربون البدء', desc: 'دفع 50% من قيمة المشروع قبل البدء في التنفيذ لضمان حجز الموعد.' },
+      { title: 'التعديلات المتاحة', desc: 'يحق للعميل جولتين من التعديلات المجانية على العمل بعد التسليم المبدئي.' },
+      { title: 'حقوق الملكية', desc: 'تنتقل كامل حقوق الملكية الفكرية والملفات المصدرية للعميل فور سداد الرصيد.' },
+      { title: 'تسليم الملفات', desc: 'يتم تسليم الملفات بجودة فائقة 4K و Full HD عبر روابط تحميل سحابية خاصة.' }
+    ];
+
+    let CAROUSEL_ITEMS = [
+      { title: 'إعلان أثاث ومفروشات راقية', desc: 'إبراز جمالية التصميم مع إضاءات سينمائية', tag: '3D Render', img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80' },
+      { title: 'أنيميشن هوية متجر إلكتروني', desc: 'تحريك شعار ثلاثي الأبعاد مع مؤثرات بصرية صوتية', tag: 'Animation', img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&auto=format&fit=crop&q=80' },
+      { title: 'حملة ترويجية لمنتجات تجميل', desc: 'دمج صور ومؤثرات سوائل فائقة الواقعية', tag: 'Social Media', img: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&auto=format&fit=crop&q=80' }
+    ];
+
+    let compressedImageBase64 = null;
+
+    function renderServices() {
+      const grid = document.getElementById('services-grid');
+      grid.innerHTML = SERVICES.map(s => `
+        <div class="bw-card p-5 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-zinc-500">${s.delivery}</span>
+              <span class="text-base font-black text-black">${s.price} ج.م</span>
+            </div>
+            <h3 class="text-sm font-bold text-black mb-2">${s.title}</h3>
+            <p class="text-xs text-zinc-600 leading-relaxed mb-4">${s.description}</p>
+          </div>
+          <a href="https://wa.me/201020185275?text=${encodeURIComponent('مرحباً، أود الاستفسار وطلب خدمة: ' + s.title)}" target="_blank" class="w-full py-2 rounded-xl bw-btn-secondary font-bold text-xs flex items-center justify-center gap-1">
+            <span>طلب الخدمة</span>
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      `).join('');
+    }
+
+    function renderOffers() {
+      const grid = document.getElementById('offers-grid');
+      grid.innerHTML = OFFERS.map(o => `
+        <div class="bw-card p-6 rounded-2xl flex flex-col justify-between relative ${o.popular ? 'border-black ring-2 ring-black' : ''}">
+          ${o.popular ? '<span class="absolute -top-3 right-6 bg-black text-white text-[10px] font-black px-3 py-1 rounded-full">الأكثر طلباً</span>' : ''}
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-zinc-100 text-zinc-800">${o.savings}</span>
+              <div class="text-left">
+                <span class="text-xs text-zinc-400 line-through mr-1">${o.originalPrice} ج.م</span>
+                <span class="text-lg font-black text-black">${o.price} ج.م</span>
+              </div>
+            </div>
+            <h3 class="text-base font-bold text-black mb-2">${o.title}</h3>
+            <p class="text-xs text-zinc-600 leading-relaxed mb-6">${o.description}</p>
+          </div>
+          <a href="https://wa.me/201020185275?text=${encodeURIComponent('مرحباً، أود حجز: ' + o.title)}" target="_blank" class="w-full py-2.5 rounded-xl ${o.popular ? 'bw-btn-primary' : 'bw-btn-secondary'} font-bold text-xs flex items-center justify-center gap-1.5">
+            <span>حجز الباقة الآن</span>
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      `).join('');
+    }
+
+    function renderPortfolio() {
+      const grid = document.getElementById('portfolio-grid');
+      grid.innerHTML = portfolio.map(p => `
+        <div class="bw-card rounded-2xl overflow-hidden group">
+          <div class="h-48 overflow-hidden bg-zinc-100 relative">
+            <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 right-3 bg-black/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-lg">
+              ${p.category}
+            </span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-sm font-bold text-black mb-1.5">${p.title}</h3>
+            <p class="text-xs text-zinc-600 leading-relaxed">${p.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderPolicies() {
+      const grid = document.getElementById('policies-grid');
+      grid.innerHTML = POLICIES.map((item, idx) => `
+        <div class="bw-card p-4 rounded-2xl">
+          <span class="w-6 h-6 rounded-lg bg-black text-white text-xs font-bold flex items-center justify-center mb-3">0${idx+1}</span>
+          <h3 class="text-xs font-bold text-black mb-1">${item.title}</h3>
+          <p class="text-[11px] text-zinc-600 leading-relaxed">${item.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    function initCarousel() {
+      const track = document.getElementById('carousel-track');
+      track.innerHTML = CAROUSEL_ITEMS.map(item => `
+        <div class="min-w-[280px] sm:min-w-[340px] bw-card rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-44 bg-zinc-100 relative">
+            <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
+            <span class="absolute top-3 right-3 bg-black/80 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-lg">${item.tag}</span>
+          </div>
+          <div class="p-4 bg-white">
+            <h3 class="text-xs font-bold text-black mb-1">${item.title}</h3>
+            <p class="text-[11px] text-zinc-500">${item.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openAdminModal() {
+      document.getElementById('admin-modal').classList.remove('hidden');
+    }
+    function openAdminModalWithSection(section) {
+      openAdminModal();
+      setHtmlTargetSection(section);
+    }
+    function closeAdminModal() {
+      document.getElementById('admin-modal').classList.add('hidden');
+    }
+    function verifyPasscode() {
+      const code = document.getElementById('admin-passcode').value;
+      if (code === '12345') {
+        document.getElementById('admin-auth-box').classList.add('hidden');
+        document.getElementById('admin-upload-box').classList.remove('hidden');
+      } else {
+        alert('الرمز السري غير صحيح!');
+      }
+    }
+
+    function previewImage(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = function() {
+          let width = img.width;
+          let height = img.height;
+          const maxDim = 1000;
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          compressedImageBase64 = canvas.toDataURL('image/jpeg', 0.85);
+
+          const prev = document.getElementById('image-preview');
+          prev.src = compressedImageBase64;
+          prev.classList.remove('hidden');
+        };
+      };
+      reader.readAsDataURL(file);
+    }
+
+    let currentHtmlTargetSection = 'portfolio';
+    let tempHtmlLogoBase64 = null;
+
+    function switchHtmlAdminTab(tab) {
+      document.getElementById('pane-design').classList.toggle('hidden', tab !== 'design');
+      document.getElementById('pane-logo').classList.toggle('hidden', tab !== 'logo');
+      document.getElementById('pane-repo').classList.toggle('hidden', tab !== 'repo');
+
+      const tabs = ['design', 'logo', 'repo'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tab-btn-' + t);
+        if (t === tab) {
+          btn.className = 'flex-1 py-2 text-center border-b-2 border-black text-black';
+        } else {
+          btn.className = 'flex-1 py-2 text-center border-b-2 border-transparent text-zinc-500 hover:text-black';
+        }
+      });
+    }
+
+    function setHtmlTargetSection(section) {
+      currentHtmlTargetSection = section;
+      const portBtn = document.getElementById('loc-portfolio');
+      const carBtn = document.getElementById('loc-carousel');
+      const catGroup = document.getElementById('category-group');
+
+      if (section === 'portfolio') {
+        portBtn.className = 'p-2 rounded-xl text-xs font-bold border bg-black text-white border-black text-center';
+        carBtn.className = 'p-2 rounded-xl text-xs font-bold border bg-zinc-50 text-zinc-700 border-zinc-200 text-center';
+        if (catGroup) catGroup.classList.remove('hidden');
+      } else {
+        carBtn.className = 'p-2 rounded-xl text-xs font-bold border bg-black text-white border-black text-center';
+        portBtn.className = 'p-2 rounded-xl text-xs font-bold border bg-zinc-50 text-zinc-700 border-zinc-200 text-center';
+        if (catGroup) catGroup.classList.add('hidden');
+      }
+    }
+
+    function previewHtmlLogo(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        tempHtmlLogoBase64 = e.target.result;
+        const prev = document.getElementById('html-logo-preview');
+        prev.innerHTML = `<img src="${tempHtmlLogoBase64}" class="w-full h-full object-contain">`;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function saveHtmlLogo() {
+      if (!tempHtmlLogoBase64) {
+        alert('يرجى اختيار ملف صورة أولاً!');
+        return;
+      }
+      localStorage.setItem('es_agency_logo', tempHtmlLogoBase64);
+      applyHtmlLogo(tempHtmlLogoBase64);
+      alert('تم تغيير وحفظ اللوجو بنجاح في الموقع!');
+      closeAdminModal();
+    }
+
+    function resetHtmlLogo() {
+      localStorage.removeItem('es_agency_logo');
+      tempHtmlLogoBase64 = null;
+      applyHtmlLogo(null);
+      const prev = document.getElementById('html-logo-preview');
+      prev.innerHTML = 'ES';
+      alert('تمت استعادة الشعار الافتراضي!');
+      closeAdminModal();
+    }
+
+    function applyHtmlLogo(logoUrl) {
+      const headerLogo = document.getElementById('site-header-logo');
+      if (headerLogo) {
+        if (logoUrl) {
+          headerLogo.innerHTML = `<img src="${logoUrl}" class="w-full h-full object-contain bg-white">`;
+        } else {
+          headerLogo.innerHTML = 'ES';
+        }
+      }
+    }
+
+    function handleNewDesign(e) {
+      e.preventDefault();
+      const title = document.getElementById('design-title').value;
+      const category = document.getElementById('design-category').value;
+      const desc = document.getElementById('design-desc').value;
+
+      if (!title || !compressedImageBase64) {
+        alert('يرجى اختيار صورة وكتابة عنوان!');
+        return;
+      }
+
+      const newItem = {
+        id: 'p-' + Date.now(),
+        title,
+        category,
+        desc: desc || 'تصميم إعلاني',
+        image: compressedImageBase64
+      };
+
+      if (currentHtmlTargetSection === 'carousel') {
+        CAROUSEL_ITEMS.unshift({
+          title,
+          desc: desc || 'إعلان سينمائي مميز',
+          tag: 'جديد',
+          img: compressedImageBase64
+        });
+        initCarousel();
+      } else {
+        portfolio.unshift(newItem);
+        localStorage.setItem('es_portfolio', JSON.stringify(portfolio));
+        renderPortfolio();
+      }
+
+      closeAdminModal();
+      alert('تم حفظ ونشر التصميم بنجاح وبشكل دائم!');
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const phone = document.getElementById('form-phone').value;
+      const service = document.getElementById('form-service').value;
+      const details = document.getElementById('form-details').value;
+
+      const msg = `📥 طلب جديد من موقع ES Agency:\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n🛠 الخدمة: ${service}\n📝 التفاصيل: ${details || 'لا يوجد'}`;
+      window.open(`https://wa.me/201020185275?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Init page
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLogo = localStorage.getItem('es_agency_logo');
+      if (savedLogo) {
+        applyHtmlLogo(savedLogo);
+        const prev = document.getElementById('html-logo-preview');
+        if (prev) prev.innerHTML = `<img src="${savedLogo}" class="w-full h-full object-contain">`;
+      }
+
+      renderServices();
+      renderOffers();
+      renderPortfolio();
+      renderPolicies();
+      initCarousel();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
